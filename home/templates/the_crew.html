@@ -1,0 +1,40 @@
+{% extends 'layouts/base.html' %}
+	{% block content %}
+			<div id="colorlib-main">
+				<section class="ftco-about img ftco-section ftco-no-pt ftco-no-pb" id="about-section">
+					<div class="container-fluid px-0">
+						<div class="row d-flex">
+							<div class="col-md-6 d-flex" id="logo">
+								<div id="colorlib-page">
+									<aside id="colorlib-aside1" role="complementary" class="js-fullheight" style="background-image: url(/static/images/goatish.jpg);">
+									<h1 id="colorlib-logo1" class="mb-4 mb-md-5" ><a href="index.html" ></a></h1>
+									</aside>
+								</div>
+							</div>
+							<div class="col-md-6 d-flex align-items-center">
+								<div class="text px-4 pt-5 pt-md-0 px-md-4 pr-md-5 ftco-animate">
+									<h2 class="mb-4">We welcome you in <br><span> PEUNDLE</span>.</h2>
+									<p>Our crew approaches the NBA from an African perspective.<br>
+										Guys discuss the league's impact on fans and players in the growing market continent.<br>
+										Basketball, which is played in all neighborhoods of African cities, is at the center of all sports conversations.<br>
+										The NBA thrills young people who idolize league superstars.
+									The Peundle platform expose the fervor around basketball in Africa.</p>
+									<div class="team-wrap row mt-4">
+										{% for 	member in members %}
+										<div class="col-md-4 team">
+											<div class="img" style="background-image: url({{member.image.url}});"></div>
+											<h3>{{member.name}}</h3>
+											<p><a href="{% url 'home:member' id=member.id %}" class="custom-btn">Read more</a></p>
+										</div>
+										{% endfor %}
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+			</div><!-- END COLORLIB-MAIN -->
+		</div><!-- END COLORLIB-PAGE -->
+
+
+	{%endblock%}

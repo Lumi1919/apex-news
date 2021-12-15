@@ -1,0 +1,1 @@
+web: gunicorn Peundle.wsgi --log-file -

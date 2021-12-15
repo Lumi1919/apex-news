@@ -1,0 +1,61 @@
+{% extends 'layouts/base.html' %}
+	{% block content %}
+
+			<div id="colorlib-main">
+				<section class="ftco-section ftco-no-pt ftco-no-pb">
+					<div class="container px-md-0" >
+						<div class="row g-0">
+							<div class="col-sm-6 col-md-8">
+								<div class="row d-flex no-gutters">
+									<div class="section-title">
+									<h2>PODCASTS</h2>
+									</div>
+									{% for element in episodes %}
+									{% if forloop.counter <= 2 %}
+									<div class="card mb-3" id="podcast">
+									  <img src="{{element.image.url}}" class="card-img-top" alt="...">
+									  <div class="card-body">
+										<h5 class="card-title">{{element.title}}</h5>
+										<p class="card-text">{{element.topic}}</p>
+										<p><a href="{% url 'home:podcastshow' id=element.id %}" class="btn-custom">View the episode</a></p>
+										<p class="card-text"><small class="text-muted">{{element.date}}</small></p>
+									  </div>
+									</div>
+									{% endif %}
+									{% endfor %}
+								</div>
+							</div>
+							<div class="col-6 col-md-4" id="list-card">
+								{% for element in episodes %}
+								{% if forloop.counter > 2 %}
+								<div class="list-group">
+								  <a href="{% url 'home:podcastshow' id=element.id %}" class="list-group-item list-group-item-action" aria-current="true">
+									<div class="d-flex w-100 justify-content-between">
+									  <h5 class="mb-1">{{element.title}}</h5>
+									</div>
+									<p class="mb-1">{{element.topic}}</p>
+									<small>{{element.date}}</small>
+								  </a>
+								</div>
+								{% endif %}
+								{% endfor %}
+							</div>
+						</div>
+						<div class="list-group" id="list-card-mobile">
+						{% for element in episodes %}
+						{% if forloop.counter > 2 %}
+						  <a href="{% url 'home:podcastshow' id=element.id %}" class="list-group-item list-group-item-action" aria-current="true">
+							<div class="d-flex w-100 justify-content-between">
+							  <h5 class="mb-1">{{element.title}}</h5>
+							</div>
+							<p class="mb-1">{{element.topic}}</p>
+							<small>{{element.date}}</small>
+						  </a>
+						{% endif %}
+						{% endfor %}
+						</div>
+					</div>
+				</section>
+			</div>
+
+    {% endblock %}

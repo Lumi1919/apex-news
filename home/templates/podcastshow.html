@@ -1,0 +1,34 @@
+{% extends 'layouts/base.html' %}
+	{% block content %}
+
+
+				<div id="colorlib-main">
+					<section class="ftco-section ftco-no-pt ftco-no-pb">
+						<div class="container px-md-0">
+							<div class="row d-flex no-gutters">
+								<div class="section-title">
+								<h2>EPISODE n° {{episode.id}}</h2>
+								</div>
+								<div class="card text-center" id="podcast_card">
+								  	<div class="card-header">
+										THE PODCAST
+									</div>
+									  <div class="card-body">
+										<h3 class="card-title">{{episode.title}}</h3>
+										  <img src="{{episode.image.url}}" class="card-img-top" alt="...">
+										<p class="card-text">{{episode.topic}}</p>
+									  	<audio id="audio" controls src=""></audio>
+									  </div>
+									  <div class="card-footer text-muted">
+										  Posted on {{episode.date}}
+									  </div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</section>
+				</div><!-- END COLORLIB-MAIN -->
+			</div><!-- END COLORLIB-PAGE -->
+
+
+    {% endblock%}
