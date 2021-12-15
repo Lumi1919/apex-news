@@ -4,17 +4,26 @@
 <div id="colorlib-main">
     <section class="ftco-section ftco-no-pt ftco-no-pb">
         <div class="container px-md-0">
+            <div class="row g-0">
+                <div class="col-sm-6 col-md-8">
+                    <div class="row d-flex no-gutters">
+                        <div class="section-title">
+                        <h2>GAMES</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div class="card">
               <div class="card-header">
                 Peundle views on today's games
               </div>
                 <div class="list-group">
-                {% for i in response %}
-                    <a href="#" class="list-group-item list-group-item-action" aria-current="true">
+                {% for i in data %}
+                    <a class="list-group-item list-group-item-action" aria-current="true">
                       <div class="card-body">
                         <blockquote class="blockquote mb-0">
                           <h5>{{i.AwayTeam}} vs  {{i.HomeTeam}}</h5>
-                          <p class="blockquote-footer">Match équilibré qui va opposer 2 équipes orientées vers l'attaque. Le meilleur joueur sur le terrain étant KD, les Nets auront donc un avantage d'autant plus que James Harden adapte progressivement son jeu aux nouvelles règles sur les coups sifflet. </p>
+                          <p class="blockquote-footer">{{i.GameId}}<br>{{i.Commentaire}} </p>
                         </blockquote>
                       </div>
                 {% endfor %}

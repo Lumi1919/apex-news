@@ -7,7 +7,7 @@ from .models import Post
 from .models import Crew
 from .models import Episode
 from .models import Comment
-from .models import Game_comment
+from .models import GameComment
 from .forms import UserForm
 from .forms import NewCommentForm
 from datetime import datetime, timedelta, time
@@ -103,4 +103,16 @@ def logout(request):
 def games(request):
     today = str(datetime.now().date())
     response = requests.get("https://api.sportsdata.io/v3/nba/scores/json/GamesByDate/"+today+"?key=e308c3c08c5746af87dd48d80266337a").json()
-    return render(request, 'games.html', {'response' : response})
+    data = [{
+        'HomeTeam': game["HomeTeam"],
+        'AwayTeam': game["AwayTeam"],
+        'GameId': game["GameID"],
+        'Commentaire': (
+                GameComment.objects.filter(game_id=game["GameID"]).first().pronostic if
+                GameComment.objects.filter(game_id=game["GameID"]).first() else "Pas de pronostic Peundle pour l'instant..."
+        )
+    }
+        for game in response
+    ]
+
+    return render(request, 'games.html', {'data' : data})

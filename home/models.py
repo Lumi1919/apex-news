@@ -49,8 +49,9 @@ class Episode(models.Model):
     def __str__(self):
         return self.title
 
-class Game_comment(models.Model):
-    pronostic = models.CharField(max_length=255)
+class GameComment(models.Model):
+    game_id = models.IntegerField()
+    pronostic = models.CharField(max_length=500)
 
     def __str__(self):
         return self.pronostic
