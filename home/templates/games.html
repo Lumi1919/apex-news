@@ -14,21 +14,19 @@
                 </div>
             </div>
             <div class="card">
-              <div class="card-header">
-                Peundle views on today's games
-              </div>
-                <div class="list-group">
-                {% for i in data %}
-                    <a class="list-group-item list-group-item-action" aria-current="true">
-                      <div class="card-body">
-                        <blockquote class="blockquote mb-0">
-                          <h5>{{i.AwayTeam}} vs  {{i.HomeTeam}}</h5>
-                          <p class="blockquote-footer">{{i.GameId}}<br>{{i.Commentaire}} </p>
-                        </blockquote>
-                      </div>
-                {% endfor %}
-                    </a>
-                </div>
+                <div id="wg-api-football-standings"
+                     data-host="v3.football.api-sports.io"
+                     data-league="39"
+                     data-team=""
+                     data-season="2021"
+                     data-key="5f08d06e4ae5171faea678b595f172b4"
+                     data-theme=""
+                     data-show-errors="false"
+                     class="api_football_loader"></div>
+                <script
+                    type="module"
+                    src="https://widgets.api-sports.io/football/1.1.8/widget.js">
+                </script>
             </div>
         </section>
     </div><!-- END COLORLIB-MAIN -->

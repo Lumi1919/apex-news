@@ -16,7 +16,7 @@ File: Featured Slider CSS
 #featured_slide a{color:#f3c623; background-color:transparent; font-weight:normal;}
 #featured_slide p{margin:0; font-size:14px;}
 
-.gallery{color:#000; background:#EFEFEF; padding:15px;}
+.gallery{color:#000; background:black; padding:15px;}
 
 .loader{background:url("../scripts/galleryviewthemes/loader.gif") center center no-repeat;}
 

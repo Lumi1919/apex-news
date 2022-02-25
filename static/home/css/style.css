@@ -8904,7 +8904,9 @@ h1, h2, h3, h4, h5,
 
 .single .img-single {
   width: 100%;
-  height: 1000px; }
+  height: 800px;
+  background-size: contain;
+}
   @media (max-width: 991.98px) {
     .single .img-single {
       height: 500px; } }

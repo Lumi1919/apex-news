@@ -27,7 +27,7 @@
 		<a href="#" class="js-colorlib-nav-toggle colorlib-nav-toggle"><i></i></a>
 		<aside id="colorlib-aside" role="complementary" class="js-fullheight">
 
-			<h1 id="colorlib-logo" class="mb-4 mb-md-5"><a href="{% url 'home:index' %}" style="background-image: url(/static/images/ball.jpg);">Peundle</a><br><span>Gametime</span></h1>
+			<h1 id="colorlib-logo" class="mb-4 mb-md-5"><a href="{% url 'home:index' %}" style="background-image: url(/static/images/ball4.jpg);">Peundle</a><br><span>Gametime</span></h1>
 			<div class="comment-p">
 				{% if user.is_authenticated %}
 				<p>{{user}}</p>
@@ -38,10 +38,9 @@
 			<nav id="colorlib-main-menu" role="navigation">
 				{% with request.resolver_match.url_name as url_name %}
 				<ul>
-					<li class="{% if url_name == 'index' %}colorlib-active{% endif %}"><a href="{% url 'home:index' %}">Home</a></li>
-					<li class="{% if url_name == 'explore' %}colorlib-active{% endif %}"><a href="{% url 'home:explore' %}">Explorer</a></li>
+					<li class="{% if url_name == 'index' %}colorlib-active{% endif %}"><a href="{% url 'main:mainpage' %}">Accueil</a></li>
+					<li class="{% if url_name == 'explore' %}colorlib-active{% endif %}"><a href="{% url 'home:explore' %}">Basket</a></li>
 					<li class="{% if url_name == 'podcast' %}colorlib-active{% endif %}"><a href="{% url 'home:podcast' %}">Podcast</a></li>
-					<li class="{% if url_name == 'games' %}colorlib-active{% endif %}"><a href="{% url 'home:games' %}">Games</a></li>
 					<li class="{% if url_name == 'crew' %}colorlib-active{% endif %}"><a href="{% url 'home:crew' %}">The Crew</a></li>
 					<li class="{% if url_name == 'contact' %}colorlib-active{% endif %}"><a href="{% url 'home:contact' %}">Contact</a></li>
 					{% if user.is_authenticated %}
@@ -64,7 +63,7 @@
 				<p class="pfooter"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
 					Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | <a>LUMI GUEYE</a>
 					<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
-				</div>
+			</div>
 			</aside> <!-- END COLORLIB-ASIDE -->
 
 		{% block content %}
@@ -90,5 +89,6 @@
 		<script src="{% static 'home/js/google-map.js' %}"></script>
 		<script src="{% static 'home/js/main.js' %}"></script>
 
+	</div>
 	</body>
 	</html>
