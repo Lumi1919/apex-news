@@ -6015,3 +6015,9 @@ footer .footer-last-line nav.footer-nav ul li:first-child:before {
   color: black;
 }
 
+@media (max-width: 475px) {
+.image-slider .news-post img{
+  height: 300px;
+}
+}
+
