@@ -105,7 +105,8 @@ def societe(request):
 def international_show(request, id):
     user = request.user
     international = International.objects.get(pk=id)
-    return render(request, 'international_show.html', {'international': international})
+    internationals = International.objects.all().order_by('-date')
+    return render(request, 'international_show.html', {'international': international, 'internationals': internationals})
 
 def societe_show(request, id):
     user = request.user
