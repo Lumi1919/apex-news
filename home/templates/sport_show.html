@@ -18,8 +18,8 @@
 								<div class="title-post">
 									<h1>{{sport.title}} </h1>
 									<ul class="post-tags">
-										<li><i class="fa fa-clock-o"></i>{{sport.date}}</li>
-										<li><i class="fa fa-user"></i>by <a href="#">{{sport.author}}</a></li>
+										<li><i class="fa fa-clock-o"></i>{{sport.date| date:"d F Y"}}</li>
+										<li><i class="fa fa-user"></i>Par <a href="#">{{sport.author}}</a></li>
 										<li><a href="#"><i class="fa fa-comments-o"></i><span>0</span></a></li>
 										<li><i class="fa fa-eye"></i>872</li>
 									</ul>
@@ -27,9 +27,8 @@
 
 								<div class="share-post-box">
 									<ul class="share-box">
-										<li><i class="fa fa-share-alt"></i><span>Share Post</span></li>
-										<li><a class="facebook" href="#"><i class="fa fa-facebook"></i><span>Share on Facebook</span></a></li>
-										<li><a class="twitter" href="#"><i class="fa fa-twitter"></i><span>Share on Twitter</span></a></li>
+										<li><a class="facebook" href="#"><i class="fa fa-facebook"></i><span>Partager sur Facebook</span></a></li>
+										<li><a class="twitter" href="#"><i class="fa fa-twitter"></i><span>Partager sur Twitter</span></a></li>
 										<li><a class="google" href="#"><i class="fa fa-google-plus"></i><span></span></a></li>
 										<li><a class="linkedin" href="#"><i class="fa fa-linkedin"></i><span></span></a></li>
 									</ul>
@@ -40,78 +39,75 @@
 										<li><img src="{{sport.image.url}}" alt=""></li>
 										<li><img src="{{sport.image.url}}" alt=""></li>
 									</ul>
-									<span class="image-caption">Cras eget sem nec dui volutpat ultrices.</span>
+									<span class="image-caption">{{sport.legende}}</span>
 								</div>
 
 								<div class="post-content">
 
-									<p>{{sport.body}}</p>
+									<p>{{sport.body1|linebreaks }}</p>
 
-									<p>Morbi interdum mollis sapien. Sed ac risus. Phasellus lacinia, magna a ullamcorper laoreet, lectus arcu pulvinar risus, vitae facilisis libero dolor a purus. Sed vel lacus. Mauris nibh felis, adipiscing varius, adipiscing in, lacinia vel, tellus. Suspendisse ac urna. Etiam pellentesque mauris ut lectus. Nunc tellus ante, mattis eget, gravida vitae, ultricies ac, leo. Integer leo pede, ornare a, lacinia eu, vulputate vel, nisl.</p>
-
-									<h2>Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. </h2>
-
-									<p>Suspendisse mauris. Fusce accumsan mollis eros. Pellentesque a diam sit amet mi ullamcorper vehicula. Integer adipiscing risus a sem. Nullam quis massa sit amet nibh viverra malesuada. Nunc sem lacus, accumsan quis, faucibus non, congue vel, arcu. Ut scelerisque hendrerit tellus. Integer sagittis. Vivamus a mauris eget arcu gravida tristique. Nunc iaculis mi in ante. Vivamus imperdiet nibh feugiat est.</p>
-
+									{% if sport.body2 %}
+									<h2>{{sport.body2|linebreaks }} </h2>
+									{% endif %}
+									
 								</div>
 
 								<div class="post-gallery">
-									<img src="upload/news-posts/single2.jpg" alt="">
-									<span class="image-caption">Cras eget sem nec dui volutpat ultrices.</span>
+									{% if sport.image2 %}
+									<img src="{{sport.image2.url}}" id="middle-post-gallery" alt="">
+									<span class="image-caption">{{sport.legende2}}.</span>
+									{% endif %}
 								</div>
 
 								<div class="post-content">
 
-									<h2>Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus.</h2>
-
-									<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus hendrerit. Pellentesque aliquet nibh nec urna. In nisi neque, aliquet vel, dapibus id, mattis vel, nisi. Sed pretium, ligula sollicitudin laoreet viverra, tortor libero sodales leo, eget blandit nunc tortor eu nibh. Nullam mollis. Ut justo. Suspendisse potenti.</p>
-
-									<p>Sed egestas, ante et vulputate volutpat, eros pede semper est, vitae luctus metus libero eu augue. Morbi purus libero, faucibus adipiscing, commodo quis, gravida id, est. Sed lectus. Praesent elementum hendrerit tortor. Sed semper lorem at felis. Vestibulum volutpat, lacus a ultrices sagittis, mi neque euismod dui, eu pulvinar nunc sapien ornare nisl. Phasellus pede arcu, dapibus eu, fermentum et, dapibus sed, urna.</p>
+									{% if sport.body3 %}
+									<p>{{sport.body3|linebreaks }}</p>
+									{% endif %}
 
 								</div>
 
 								<div class="article-inpost">
 									<div class="row">
+										{% if sport.image3 %}
 										<div class="col-md-6">
 											<div class="image-content">
 												<div class="image-place">
-													<img src="upload/news-posts/single-art4.jpg" alt="">
+													<img src="{{sport.image3.url}}" alt="">
 													<div class="hover-image">
-														<a class="zoom" href="upload/news-posts/single-art4.jpg"><i class="fa fa-arrows-alt"></i></a>
+														<a class="zoom" href="{{sport.image3.url}}"><i class="fa fa-arrows-alt"></i></a>
 													</div>
 												</div>
-												<span class="image-caption">Cras eget sem nec dui volutpat ultrices.</span>
+												<span class="image-caption">{{sport.legende3}}.</span>
 											</div>
 										</div>
+										{% endif %}
+										{% if sport.image %}
 										<div class="col-md-6">
 											<div class="image-content">
 												<div class="image-place">
-													<img src="upload/news-posts/single-art5.jpg" alt="">
+													<img src="{{sport.image.url}}" alt="">
 													<div class="hover-image">
-														<a class="zoom" href="upload/news-posts/single-art5.jpg"><i class="fa fa-arrows-alt"></i></a>
+														<a class="zoom" href="{{sport.image.url}}"><i class="fa fa-arrows-alt"></i></a>
 													</div>
 												</div>
-												<span class="image-caption">Cras eget sem nec dui volutpat ultrices.</span>
+												<span class="image-caption">{{sport.legende}}.</span>
 											</div>
 										</div>
+										{% endif %}
 									</div>
 								</div>
 
-								<div class="post-content">
-
-									<p>SMorbi interdum mollis sapien. Sed ac risus. Phasellus lacinia, magna a ullamcorper laoreet, lectus arcu pulvinar risus, vitae facilisis libero dolor a purus. Sed vel lacus. Mauris nibh felis, adipiscing varius, adipiscing in, lacinia vel, tellus. Suspendisse ac urna. Etiam pellentesque mauris ut lectus. Nunc tellus ante, mattis eget, gravida vitae, ultricies ac, leo. Integer leo pede, ornare a, lacinia eu, vulputate vel, nisl.</p>
-
-								</div>
 
 								<!-- contact form box -->
 								<div class="contact-form-box">
 									<div class="title-section">
-										<h1><span>Commenter</span> <span class="email-not-published">Your email address will not be published.</span></h1>
+										<h1><span>Commenter</span> <span class="email-not-published">Votre e-mail n'apparaîtra pas.</span></h1>
 									</div>
 									<form id="comment-form">
 										<div class="row">
 											<div class="col-md-4">
-												<label for="name">Name*</label>
+												<label for="name">Nom & Prénom*</label>
 												<input id="name" name="name" type="text">
 											</div>
 											<div class="col-md-4">
@@ -119,7 +115,7 @@
 												<input id="mail" name="mail" type="text">
 											</div>
 										</div>
-										<label for="comment">Comment*</label>
+										<label for="comment">Commentaire*</label>
 										<textarea id="comment" name="comment"></textarea>
 										<button type="submit" id="submit-contact">
 											<i class="fa fa-comment"></i> Commentaires
@@ -135,98 +131,71 @@
 						<!-- End block content -->
 
 					</div>
-
 					<div class="col-sm-4">
 
 						<!-- sidebar -->
 						<div class="sidebar">
-
-							<div class="widget social-widget">
-								<div class="title-section">
-									<h1><span>Stay Connected</span></h1>
-								</div>
-								<ul class="social-share">
-									<li>
-										<a href="#" class="rss"><i class="fa fa-rss"></i></a>
-										<span class="number">9,455</span>
-										<span>Subscribers</span>
-									</li>
-									<li>
-										<a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
-										<span class="number">56,743</span>
-										<span>Fans</span>
-									</li>
-									<li>
-										<a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
-										<span class="number">43,501</span>
-										<span>Followers</span>
-									</li>
-									<li>
-										<a href="#" class="google"><i class="fa fa-google-plus"></i></a>
-										<span class="number">35,003</span>
-										<span>Followers</span>
-									</li>
-								</ul>
-							</div>
+							{% include 'layouts/share.html' %}
 
 							<div class="widget features-slide-widget">
 								<div class="title-section">
-									<h1><span>Featured Posts</span></h1>
+									<h1><span>JOUEUR DU MOIS</span></h1>
 								</div>
+								{% for element in player_of_week %}
+								{% if forloop.counter == 1 %}
 								<div class="news-post standard-post2">
-									{% for element in sports %}
-									{% if forloop.counter < 3 %}
 									<div class="post-gallery">
 										<img src="{{element.image.url}}" alt="">
 									</div>
 									<div class="post-title">
 										<h2><a href="single-post.html">{{element.title}}</a></h2>
 										<ul class="post-tags">
-											<li><i class="fa fa-clock-o"></i>{{element.date}}</li>
 											<li><i class="fa fa-user"></i>by <a href="#">{{element.author}}</a></li>
 											<li><a href="#"><i class="fa fa-comments-o"></i><span>23</span></a></li>
 											<li><i class="fa fa-eye"></i>872</li>
 										</ul>
 									</div>
-									<br>
-									{% endif %}
-									{% endfor %}
 								</div>
+								{% endif %}
+								{% endfor %}
 							</div>
 
 							<div class="widget tab-posts-widget">
 
 								<ul class="nav nav-tabs" id="myTab">
 									<li class="active">
-										<a href="#option1" data-toggle="tab">Similaires</a>
+										<a href="#option1" data-toggle="tab">Gametime</a>
 									</li>
 									<li>
-										<a href="#option2" data-toggle="tab">Gametime</a>
+										<a href="#option2" data-toggle="tab">Culture</a>
+									</li>
+									<li>
+										<a href="#option2" data-toggle="tab">Evènements</a>
 									</li>
 								</ul>
 
 								<div class="tab-content">
 									<div class="tab-pane active" id="option1">
 										<ul class="list-posts">
-											{% for element in sports %}
-											{% if forloop.counter < 5 %}
+										{% for element in posts %}
+										{% if forloop.counter < 6 %}
 											<li>
 												<img src="{{element.image.url}}" alt="">
 												<div class="post-content">
-													<h2><a href="single-post.html">{{element.title}}</a></h2>
+													<h2><a href="single-post.html">{{element.title}} </a></h2>
 													<ul class="post-tags">
 														<li><i class="fa fa-clock-o"></i>{{element.date}}</li>
 													</ul>
 												</div>
 											</li>
-											{% endif %}
-											{% endfor %}
+										{% endif %}
+										{% endfor %}
 										</ul>
 									</div>
 									<div class="tab-pane" id="option2">
 										<ul class="list-posts">
-											{% for element in posts %}
-											{% if forloop.counter < 5 %}
+											{% for element in cultures %}
+											{% if forloop.counter < 6 %}
 											<li>
 												<img src="{{element.image.url}}" alt="">
 												<div class="post-content">
@@ -240,46 +209,28 @@
 											{% endfor %}
 										</ul>
 									</div>
-								</div>
-							</div>
-
-							<div class="widget post-widget">
-								<div class="title-section">
-									<h1><span>A VOIR </span></h1>
-								</div>
-								{% for element in videos %}
-								<div class="news-post video-post" >
-									<iframe width="100%" height="175" src="{{element.videoLink}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-									<div class="hover-box">
-										<h2><a>{{element.title}}</a></h2>
-										<ul class="post-tags">
-											<li><i class="fa fa-clock-o"></i>{{element.date}}</li>
+									<div class="tab-pane" id="option3">
+										<ul class="list-posts">
+											{% for element in events %}
+											{% if forloop.counter < 6 %}
+											<li>
+												<img src="{{element.image.url}}" alt="">
+												<div class="post-content">
+													<h2><a href="{% url 'home:event_show' element.id %}">{{element.title}} </a></h2>
+													<ul class="post-tags">
+														<li><i class="fa fa-clock-o"></i>{{element.date| date:"d F Y"}}</li>
+													</ul>
+												</div>
+											</li>
+											{% endif %}
+											{% endfor %}
 										</ul>
 									</div>
 								</div>
-								{% endfor %}
 							</div>
 
-							<div class="widget tags-widget">
-
-								<div class="title-section">
-									<h1><span>Popular Tags</span></h1>
-								</div>
-
-								<ul class="tag-list">
-									<li><a href="#">News</a></li>
-									<li><a href="#">Fashion</a></li>
-									<li><a href="#">Politics</a></li>
-									<li><a href="#">Sport</a></li>
-									<li><a href="#">Food</a></li>
-									<li><a href="#">Videos</a></li>
-									<li><a href="#">Business</a></li>
-									<li><a href="#">Travel</a></li>
-									<li><a href="#">World</a></li>
-									<li><a href="#">Music</a></li>
-								</ul>
-
-							</div>
+							{% include 'layouts/video.html' %}
+							{% include 'layouts/tags.html' %}
 
 						</div>
 						<!-- End sidebar -->

@@ -1,0 +1,92 @@
+<div class="widget features-slide-widget">
+    <div class="title-section">
+        <h1><span>ON EN PARLE</span></h1>
+    </div>
+    {% for element in articles %}
+    {% if forloop.counter < 2 and element != article %}
+    <div class="news-post standard-post2">
+        <div class="post-gallery">
+            <img src="{{element.image.url}}" alt="">
+        </div>
+        <div class="post-title">
+            <h2><a href="{% url 'home:article' element.id %}">{{element.title}}</a></h2>
+            <ul class="post-tags">
+                <li><i class="fa fa-clock-o"></i>{{element.date| date:"d F Y"}}</li>
+                <li><i class="fa fa-user"></i>Par <a href="#">{{element.author}}</a></li>
+                <li><a href="#"><i class="fa fa-comments-o"></i><span>23</span></a></li>
+                <li><i class="fa fa-eye"></i>872</li>
+            </ul>
+        </div>
+    </div>
+    {% endif %}
+    {% endfor %}
+</div>
+
+<div class="widget tab-posts-widget">
+
+    <ul class="nav nav-tabs" id="myTab">
+        <li class="active">
+            <a href="#option1" data-toggle="tab">People</a>
+        </li>
+        <li>
+            <a href="#option2" data-toggle="tab">Activités</a>
+        </li>
+        <li>
+            <a href="#option3" data-toggle="tab">Evènements</a>
+        </li>
+    </ul>
+
+    <div class="tab-content">
+        <div class="tab-pane active" id="option1">
+            <ul class="list-posts">
+                {% for element in peoples %}
+                {% if forloop.counter > 1  and forloop.counter < 7 %}
+                <li>
+                    <img src="{{element.image.url}}" alt="">
+                    <div class="post-content">
+                        <h2><a href="{% url 'home:people_show' element.id %}">{{element.title}}</a></h2>
+                        <ul class="post-tags">
+                            <li><i class="fa fa-clock-o"></i>{{element.date| date:"d F Y"}}</li>
+                        </ul>
+                    </div>
+                </li>
+                {% endif %}
+                {% endfor %}
+                <li>
+            </ul>
+        </div>
+        <div class="tab-pane" id="option2">
+            <ul class="list-posts">
+                {% for element in activites %}
+                {% if forloop.counter < 6 %}
+                <li>
+                    <img src="{{element.image.url}}" alt="">
+                    <div class="post-content">
+                        <h2><a href="{% url 'home:activite_show' element.id %}">{{element.title}} </a></h2>
+                        <ul class="post-tags">
+                            <li><i class="fa fa-clock-o"></i>{{element.date| date:"d F Y"}}</li>
+                        </ul>
+                    </div>
+                </li>
+                {% endif %}
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="tab-pane" id="option3">
+            <ul class="list-posts">
+                {% for element in events %}
+                {% if forloop.counter < 6 %}
+                <li>
+                    <img src="{{element.image.url}}" alt="">
+                    <div class="post-content">
+                        <h2><a href="{% url 'home:event_show' element.id %}">{{element.title}} </a></h2>
+                        <ul class="post-tags">
+                            <li><i class="fa fa-clock-o"></i>{{element.date| date:"d F Y"}}</li>
+                        </ul>
+                    </div>
+                </li>
+                {% endif %}
+                {% endfor %}
+            </ul>
+        </div>
+    </div>

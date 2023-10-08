@@ -8,47 +8,19 @@
 					<div class="col-sm-6 col-md-8">
 						<div class="row d-flex no-gutters">
 							<div class="section-title">
-							<h2>PEUNDLE GAMETIME</h2>
+							<h2>APEX TV</h2>
 							</div>
 						</div>
 					</div>
             	</div>
-				<div class="row d-flex no-gutters">
-					<div class="col-md-12 portfolio-wrap">
-						{% for element in posts %}
-						<div class="row no-gutters align-items-center">
-							{% if forloop.counter|divisibleby:'2' %}
-							<a href="{{element.image.url}}" id="img-post" class="col-md-6 img image-popup js-fullheight d-flex align-items-center justify-content-center" style="background-image: url({{element.image.url}});">
-							{% else %}
-							<a href="{{element.image.url}}" id="img-post" class="col-md-6 order-md-last img image-popup js-fullheight d-flex align-items-center justify-content-center" style="background-image: url({{element.image.url}});">
-							{% endif %}
-								<div class="icon d-flex align-items-center justify-content-center">
-									<span class="fa fa-expand"></span>
-								</div>
-							</a>
-							<div class="col-md-6">
-								<div class="text pt-5 pl-0 px-lg-5 pl-md-4 ftco-animate">
-									<div class="px-4 px-lg-4">
-										<div class="desc">
-											<div class="top">
-												<span class="subheading">{{element.intro}}</span>
-												<h2 class="mb-4"><a href="{% url 'home:showpost' id=element.id %}">{{element.title}}</a></h2>
-											</div>
-											<div class="absolute">
-												<p>{{element.body | truncatewords:20}}</p>
-											</div>
-											<p><a href="{% url 'home:showpost' id=element.id %}" class="custom-btn">Read more</a></p>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						{% endfor %}
-					</div>
+
+				<div class="embed-responsive embed-responsive-16by9">
+					<iframe width="560" height="315" src="#" alt="Pas de live en cours" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 				</div>
+
 				<div class="row d-flex">
 					<div class="col-md-12">
-						<a href="#" class="btn-custom-load d-block w-100 text-center py-4">Load more <span class="fa fa-refresh"></span></a>
+						<a href="#" class="btn-custom-load d-block w-100 text-center py-4">Vous êtes sur APEX LIVE TV </span></a>
 					</div>
 				</div>
 			</div>

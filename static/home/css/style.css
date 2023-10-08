@@ -9503,3 +9503,9 @@ audio::-webkit-media-controls-play-button,
     display: none;
   }
 }
+
+@media (min-width:475px) {
+.ftco-section{
+  margin : 3%;
+}
+}

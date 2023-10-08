@@ -2,7 +2,7 @@
 {% load static %}
 <html lang="en" class="no-js">
 <head>
-	<title>PEUNDLE | GameTime</title>
+	<title>APEX | News</title>
 
 	<meta charset="utf-8">
 
@@ -61,21 +61,11 @@
 												c23.291,12.375,42.416,31.542,54.457,55.063C378.938,290.188,389.209,288,400,288c44.188,0,80,35.812,80,80S444.188,448,400,448z"
 											/>
 										</svg>
-										<span class="cel-temperature">+7</span>
+										<span class="cel-temperature">+31°</span>
 									</li>
-									<li><span class="time-now">{% now "jS F Y H:i" %}</span></li>
+									<li><span class="time-now">{% now "d F Y H:i" %}</span></li>
 									<li><a href="#">Connexion</a></li>
-									<li><a href="contact.html">Contact</a></li>
-								</ul>
-							</div>
-							<div class="col-md-3">
-								<ul class="social-icons">
-									<li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
-									<li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
-									<li><a class="rss" href="#"><i class="fa fa-rss"></i></a></li>
-									<li><a class="google" href="#"><i class="fa fa-google-plus"></i></a></li>
-									<li><a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>
-									<li><a class="pinterest" href="#"><i class="fa fa-pinterest"></i></a></li>
+									<li><a>Contact : +221 78 019 92 05</a></li>
 								</ul>
 							</div>
 						</div>
@@ -121,7 +111,7 @@
 								<span class="icon-bar"></span>
 								<span class="icon-bar"></span>
 							</button>
-							<a class="navbar-brand" href="index.html"><img src="/static/images/logo_p.jpg" alt=""></a>
+							<a class="navbar-brand" href="index.html"><img src="/static/images/logoapex.jpg" alt=""></a>
 						</div>
 
 						<!-- Collect the nav links, forms, and other content for toggling -->
@@ -130,21 +120,14 @@
 
 								<li><a class="active" href="{% url 'main:mainpage' %}">Accueil</a></li>
 								<li><a href="{% url 'home:societe' %}">Societe</a></li>
+								<li><a href="{% url 'home:politique' %}">Politique</a></li>
 								<li><a href="{% url 'home:culture' %}">Culture</a></li>
 								<li><a href="{% url 'home:activites' %}">ACTIVITES</a></li>
 								<li><a href="{% url 'home:sport' %}">SPORT</a></li>
-								<li class="drop-arrow drop"><a href="#">SANDAGA WEB</a>
-									<ul class="dropdown">
-										<li><a href="{% url 'home:emploi' %}">PAGE EMPLOI</a></li>
-										<li><a href="#">IMMOBILIER</a></li>
-										<li><a href="#">VENTE & ANNONCE </a></li>
-									</ul>
-								</li>
-
-								<li class="drop-arrow drop"><a href="sport-category.html">GAMETIME</a>
+								<li class="drop-arrow drop"><a>APEX.TV</a>
 									<ul class="dropdown">
 										<li><a href="{% url 'home:index' %}">PEUNDLE</a></li>
-										<li><a href="{% url 'home:index' %}">PODCAST</a></li>
+										<li><a href="{% url 'home:podcast' %}">PODCAST</a></li>
 									</ul>
 								</li>
 
@@ -205,7 +188,7 @@
 						<div class="col-md-3">
 							<div class="widget text-widget">
 								<h1>A Propos</h1>
-								<p>Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci. Aenean dignissim pellentesque felis. Morbi in sem quis dui placerat ornare.</p>
+								<p>« APEX » garantit aux lecteurs une information de qualité, vérifiée et équilibrée sur ses supports numériques. L'indépendance éditoriale constitue un principe jalousement défendu par la rédaction.</p>
 							</div>
 						</div>
 						<div class="col-md-3">
@@ -216,26 +199,26 @@
 									<li><a href="#" class="google"><i class="fa fa-google-plus"></i></a></li>
 									<li><a href="#" class="twitter"><i class="fa fa-twitter"></i></a></li>
 									<li><a href="#" class="youtube"><i class="fa fa-youtube"></i></a></li>
-									<li><a href="#" class="instagram"><i class="fa fa-instagram"></i></a></li>
+									<li><a href="https://www.instagram.com/mouvement_apex/" target="_blank" class="instagram"><i class="fa fa-instagram"></i></a></li>
 									<li><a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a></li>
 									<li><a href="#" class="vimeo"><i class="fa fa-vimeo-square"></i></a></li>
 									<li><a href="#" class="dribble"><i class="fa fa-dribbble"></i></a></li>
 									<li><a href="#" class="pinterest"><i class="fa fa-pinterest"></i></a></li>
 									<li><a href="#" class="flickr"><i class="fa fa-flickr"></i></a></li>
-									<li><a href="#" class="rss"><i class="fa fa-rss"></i></a></li>
+									<li><a href="http://apex-sn.org/" target="_blank" class="rss"><i class="fa fa-rss"></i></a></li>
 								</ul>
 							</div>
 						</div>
 
 						<div class="col-md-3">
 							<div class="widget posts-widget">
-								<h1>Peundle GameTime</h1>
+								<h1>APEX GROUP</h1>
 								<ul class="list-posts">
 									<li>
-										<img src="/static/images/fsbb.jpg" alt="">
+										<img src="/static/images/logoapex.jpg" alt="">
 										<div class="post-content">
-											<a href="travel.html">BasketBall</a>
-											<h2><a href="single-post.html">FSBB <br> PEUNDLE </a></h2>
+											<a href="travel.html">Action & Excellence</a>
+											<h2><a href="single-post.html">L'accès à l'information, un droit fondamental!</a></h2>
 											<ul class="post-tags">
 												<li></li>
 											</ul>
@@ -247,11 +230,11 @@
 
 						<div class="col-md-3">
 							<div class="widget flickr-widget">
-								<h1>Nos partenaires</h1>
+								<h1>Partenaires</h1>
 								<ul class="flickr-list">
-									<li><a><img src="/static/images/orange.jpg" alt=""></a></li>
-									<li><a><img src="/static/images/lonase.jpg" alt=""></a></li>
-									<li><a><img src="/static/images/apix.jpg" alt=""></a></li>
+									{% for element in partenaire %}
+									<li><a><img src="{{element.image.url}}" alt=""></a></li>
+									{% endfor %}
 								</ul>
 							</div>
 						</div>
@@ -260,13 +243,14 @@
 				<div class="footer-last-line">
 					<div class="row">
 						<div class="col-md-6">
-							<p>&copy; COPYRIGHT 2022 | ShenSanLumi</p>
+							<p>&copy; COPYRIGHT {% now "Y" %} | APEX GROUP</p>
+							<p>Designed by Lumi Gueye</p>
 						</div>
 						<div class="col-md-6">
 							<nav class="footer-nav">
 								<ul>
 									<li><a href="{% url 'main:mainpage' %}">Accueil</a></li>
-									<li><a href="{% url 'home:contact' %}">Contact</a></li>
+									<li><a>Contact :  +221 780 19 92 05</a></li>
 								</ul>
 							</nav>
 						</div>

@@ -1,0 +1,160 @@
+{% extends 'layouts/base2.html' %}
+	{% block content %}
+
+		<!-- block-wrapper-section
+			================================================== -->
+		<section class="block-wrapper">
+
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-8">
+
+						<!-- block content -->
+						<div class="block-content">
+
+							<!-- single-post box -->
+							<div class="single-post-box">
+
+								<div class="title-post">
+									<h1>{{politique.title}} </h1>
+									<ul class="post-tags">
+										<li><i class="fa fa-clock-o"></i>{{politique.date| date:"d F Y"}}</li>
+										<li><i class="fa fa-user"></i>Par <a href="#">{{politique.author}}</a></li>
+										<li><a href="#"><i class="fa fa-comments-o"></i><span>0</span></a></li>
+										<li><i class="fa fa-eye"></i>872</li>
+									</ul>
+								</div>
+
+								<div class="share-post-box">
+									<ul class="share-box">
+										<li><a class="facebook" href="#"><i class="fa fa-facebook"></i><span>Partager sur Facebook</span></a></li>
+										<li><a class="twitter" href="#"><i class="fa fa-twitter"></i><span>Partager sur Twitter</span></a></li>
+										<li><a class="google" href="#"><i class="fa fa-google-plus"></i><span></span></a></li>
+										<li><a class="linkedin" href="#"><i class="fa fa-linkedin"></i><span></span></a></li>
+									</ul>
+								</div>
+
+								<div class="post-gallery">
+									<ul class="bxslider">
+										<li><img src="{{politique.image.url}}" alt=""></li>
+                                        {% if politique.image2 %}
+										<li><img src="{{politique.image2.url}}" alt=""></li>
+                                        {% endif %}
+									</ul>
+									<span class="image-caption">{{politique.legende}}</span>
+								</div>
+
+								<div class="post-content">
+
+									<p>{{politique.body1|linebreaks }}</p>
+
+									{% if politique.body2 %}
+									<h2>{{politique.body2|linebreaks }} </h2>
+									{% endif %}
+									
+								</div>
+
+								<div class="post-gallery">
+									{% if politique.image2 %}
+									<img src="{{politique.image2.url}}" id="middle-post-gallery" alt="">
+									<span class="image-caption">{{politique.legende2}}.</span>
+									{% endif %}
+								</div>
+
+								<div class="post-content">
+
+									{% if politique.body3 %}
+									<p>{{politique.body3|linebreaks }}</p>
+									{% endif %}
+
+								</div>
+
+								<div class="article-inpost">
+									<div class="row">
+										{% if politique.image3 %}
+										<div class="col-md-6">
+											<div class="image-content">
+												<div class="image-place">
+													<img src="{{politique.image3.url}}" alt="">
+													<div class="hover-image">
+														<a class="zoom" href="{{politique.image3.url}}"><i class="fa fa-arrows-alt"></i></a>
+													</div>
+												</div>
+												<span class="image-caption">{{politique.legende3}}.</span>
+											</div>
+										</div>
+										{% endif %}
+										{% if politique.image %}
+										<div class="col-md-6">
+											<div class="image-content">
+												<div class="image-place">
+													<img src="{{politique.image.url}}" alt="">
+													<div class="hover-image">
+														<a class="zoom" href="{{politique.image.url}}"><i class="fa fa-arrows-alt"></i></a>
+													</div>
+												</div>
+												<span class="image-caption">{{politique.legende}}.</span>
+											</div>
+										</div>
+										{% endif %}
+									</div>
+								</div>
+
+
+								<!-- contact form box -->
+								<div class="contact-form-box">
+									<div class="title-section">
+										<h1><span>Commenter</span> <span class="email-not-published">Votre e-mail n'apparaîtra pas.</span></h1>
+									</div>
+									<form id="comment-form">
+										<div class="row">
+											<div class="col-md-4">
+												<label for="name">Nom & Prénom*</label>
+												<input id="name" name="name" type="text">
+											</div>
+											<div class="col-md-4">
+												<label for="mail">E-mail*</label>
+												<input id="mail" name="mail" type="text">
+											</div>
+										</div>
+										<label for="comment">Commentaire*</label>
+										<textarea id="comment" name="comment"></textarea>
+										<button type="submit" id="submit-contact">
+											<i class="fa fa-comment"></i> Commentaires
+										</button>
+									</form>
+								</div>
+								<!-- End contact form box -->
+
+							</div>
+							<!-- End single-post box -->
+
+						</div>
+						<!-- End block content -->
+
+					</div>
+
+					<div class="col-sm-4">
+
+						<!-- sidebar -->
+						<div class="sidebar">
+
+							{% include 'layouts/share.html' %}
+
+							{% include 'layouts/right_content.html' %}
+							{% include 'layouts/video.html' %}
+
+							{% include 'layouts/tags.html'%}
+
+						</div>
+						<!-- End sidebar -->
+
+					</div>
+
+				</div>
+
+			</div>
+		</section>
+		<!-- End block-wrapper-section -->
+
+	{% endblock %}

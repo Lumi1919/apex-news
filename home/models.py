@@ -2,26 +2,39 @@ from django.db import models
 
 
 class Post(models.Model):
-    intro = models.CharField(max_length=255)
-    title = models.CharField(max_length=255)
-    body = models.TextField()
+    intro = models.CharField(max_length=255, null=True, blank=True)
+    legende = models.CharField(max_length=255, null=True, blank=True)
+    legende2 = models.CharField(max_length=255, null=True, blank=True)
+    legende3 = models.CharField(max_length=255, null=True, blank=True)
+    title = models.CharField(max_length=255, null=True, blank=True)
+    body = models.TextField(null=True, blank=True)
+    body2 = models.TextField(null=True, blank=True)
+    body3 = models.TextField(null=True, blank=True)
     date = models.DateTimeField(auto_now_add=True, null=True, blank=True)
-    image = models.ImageField()
-    image2 = models.ImageField()
-    author = models.CharField(max_length=255)
-    author_image = models.ImageField()
+    image = models.ImageField(null=True, blank=True)
+    image2 = models.ImageField(null=True, blank=True)
+    image3 = models.ImageField(null=True, blank=True)
+    author = models.CharField(max_length=255, null=True, blank=True)
+    author_image = models.ImageField(null=True, blank=True)
 
     def __str__(self):
         return self.title
 
 class Articles(models.Model):
-    intro = models.CharField(max_length=255)
-    title = models.CharField(max_length=255)
-    body = models.TextField()
+    intro = models.CharField(max_length=255, null=True, blank=True)
+    legende = models.CharField(max_length=255, null=True, blank=True)
+    legende2 = models.CharField(max_length=255, null=True, blank=True)
+    legende3 = models.CharField(max_length=255, null=True, blank=True)
+    title = models.CharField(max_length=255, null=True, blank=True)
+    body1 = models.TextField(null=True, blank=True)
+    body2 = models.TextField(null=True, blank=True)
+    body3 = models.TextField(null=True, blank=True)
     date = models.DateTimeField(auto_now_add=True, null=True, blank=True)
-    image = models.ImageField()
-    author = models.CharField(max_length=255)
-    author_image = models.ImageField()
+    image = models.ImageField(null=True, blank=True)
+    image2 = models.ImageField(null=True, blank=True)
+    image3 = models.ImageField(null=True, blank=True)
+    author = models.CharField(max_length=255, null=True, blank=True)
+    author_image = models.ImageField(null=True, blank=True)
 
     def __str__(self):
         return self.title
@@ -30,22 +43,16 @@ class Articles(models.Model):
 class Evenements_Jour(models.Model):
     categorie = models.CharField(max_length=255, null=True, blank=True)
     title = models.CharField(max_length=255)
-    body = models.TextField()
+    legende = models.CharField(max_length=255, null=True, blank=True)
+    legende2 = models.CharField(max_length=255, null=True, blank=True)
+    legende3 = models.CharField(max_length=255, null=True, blank=True)
+    body1 = models.TextField(null=True, blank=True)
+    body2 = models.TextField(null=True, blank=True)
+    body3 = models.TextField(null=True, blank=True)
     date = models.DateTimeField(auto_now_add=True, null=True, blank=True)
-    image = models.ImageField()
-
-    def __str__(self):
-        return self.title
-
-class FootPost(models.Model):
-    intro = models.CharField(max_length=255)
-    title = models.CharField(max_length=255)
-    body = models.TextField()
-    date = models.DateTimeField(auto_now_add=True, null=True, blank=True)
-    image = models.ImageField()
-    image2 = models.ImageField()
-    author = models.CharField(max_length=255)
-    author_image = models.ImageField()
+    image = models.ImageField(null=True, blank=True)
+    image2 = models.ImageField(null=True, blank=True)
+    image3 = models.ImageField(null=True, blank=True)
 
     def __str__(self):
         return self.title
@@ -66,17 +73,6 @@ class Comment(models.Model):
         return f"Comment by {self.name}"
 
 
-
-class Crew(models.Model):
-    name = models.CharField(max_length=255)
-    description = models.CharField(max_length=255)
-    country = models.TextField()
-    image = models.ImageField()
-
-    def __str__(self):
-        return self.name
-
-
 class Episode(models.Model):
     title = models.CharField(max_length=255)
     topic = models.CharField(max_length=255)
@@ -86,37 +82,6 @@ class Episode(models.Model):
     def __str__(self):
         return self.title
 
-class GameComment(models.Model):
-    game_id = models.IntegerField()
-    pronostic = models.CharField(max_length=500)
-
-    def __str__(self):
-        return self.pronostic
-
-
-class Lamb(models.Model):
-    intro = models.CharField(max_length=255)
-    title = models.CharField(max_length=255)
-    body = models.TextField()
-    date = models.DateTimeField(auto_now_add=True, null=True, blank=True)
-    image = models.ImageField()
-    author = models.CharField(max_length=255)
-    author_image = models.ImageField()
-
-    def __str__(self):
-        return self.title
-
-
-class Lamb_combat(models.Model):
-    title = models.CharField(max_length=255)
-    lutteur1 = models.CharField(max_length=255)
-    lutteur2 = models.CharField(max_length=255)
-    body = models.TextField()
-    date = models.DateTimeField(auto_now_add=True, null=True, blank=True)
-    image = models.ImageField()
-    author = models.CharField(max_length=255)
-    def __str__(self):
-        return self.title
 
 class Album(models.Model):
     title = models.CharField(max_length=255)
@@ -134,35 +99,38 @@ class Album(models.Model):
         return self.title
 
 
-class FootPlayerofWeek(models.Model):
-    title = models.CharField(max_length=255)
-    body = models.CharField(max_length=255)
+class Homme_de_la_semaine(models.Model):
+    legende = models.CharField(max_length=255, null=True, blank=True)
+    legende2 = models.CharField(max_length=255, null=True, blank=True)
+    legende3 = models.CharField(max_length=255, null=True, blank=True)
+    title = models.CharField(max_length=255, null=True, blank=True)
+    body1 = models.TextField(null=True, blank=True)
+    body2 = models.TextField(null=True, blank=True)
+    body3 = models.TextField(null=True, blank=True)
     date = models.DateTimeField(auto_now_add=True, null=True, blank=True)
-    image = models.ImageField()
-    author = models.CharField(max_length=255)
-    author_image = models.ImageField()
+    image = models.ImageField(null=True, blank=True)
+    image2 = models.ImageField(null=True, blank=True)
+    image3 = models.ImageField(null=True, blank=True)
+    author = models.CharField(max_length=255, null=True, blank=True)
+    author_image = models.ImageField(null=True, blank=True)
 
     def __str__(self):
         return self.title
 
-
-class Gaming(models.Model):
-    title = models.CharField(max_length=255)
-    body = models.TextField()
-    date = models.DateTimeField(auto_now_add=True, null=True, blank=True)
-    image = models.ImageField()
-    author = models.CharField(max_length=255)
-    author_image = models.ImageField()
-
-    def __str__(self):
-        return self.title
 
 
 class Actu(models.Model):
     title = models.CharField(max_length=255)
-    body = models.TextField()
+    legende = models.CharField(max_length=255, null=True, blank=True)
+    legende2 = models.CharField(max_length=255, null=True, blank=True)
+    legende3 = models.CharField(max_length=255, null=True, blank=True)
+    body1 = models.TextField(null=True, blank=True)
+    body2 = models.TextField(null=True, blank=True)
+    body3 = models.TextField(null=True, blank=True)
     date = models.DateTimeField(auto_now_add=True, null=True, blank=True)
     image = models.ImageField(null=True, blank=True)
+    image2 = models.ImageField(null=True, blank=True)
+    image3= models.ImageField(null=True, blank=True)
     video = models.FileField(upload_to='static', null=True, blank=True)
     author = models.CharField(max_length=255)
     author_image = models.ImageField()
@@ -173,9 +141,16 @@ class Actu(models.Model):
 
 class Societe(models.Model):
     title = models.CharField(max_length=255)
-    body = models.TextField()
+    legende = models.CharField(max_length=255, null=True, blank=True)
+    legende2 = models.CharField(max_length=255, null=True, blank=True)
+    legende3 = models.CharField(max_length=255, null=True, blank=True)
+    body1 = models.TextField(null=True, blank=True)
+    body2 = models.TextField(null=True, blank=True)
+    body3 = models.TextField(null=True, blank=True)
     date = models.DateTimeField(auto_now_add=True, null=True, blank=True)
     image = models.ImageField(null=True, blank=True)
+    image2 = models.ImageField(null=True, blank=True)
+    image3 = models.ImageField(null=True, blank=True)
     author = models.CharField(max_length=255)
 
     def __str__(self):
@@ -184,9 +159,16 @@ class Societe(models.Model):
 
 class Culture(models.Model):
     title = models.CharField(max_length=255)
-    body = models.TextField()
+    legende = models.CharField(max_length=255, null=True, blank=True)
+    legende2 = models.CharField(max_length=255, null=True, blank=True)
+    legende3 = models.CharField(max_length=255, null=True, blank=True)
+    body1 = models.TextField(null=True, blank=True)
+    body2 = models.TextField(null=True, blank=True)
+    body3 = models.TextField(null=True, blank=True)
     date = models.DateTimeField(auto_now_add=True, null=True, blank=True)
     image = models.ImageField(null=True, blank=True)
+    image2 = models.ImageField(null=True, blank=True)
+    image3 = models.ImageField(null=True, blank=True)
     author = models.CharField(max_length=255)
 
     def __str__(self):
@@ -195,9 +177,16 @@ class Culture(models.Model):
 
 class People(models.Model):
     title = models.CharField(max_length=255)
-    body = models.TextField()
+    legende = models.CharField(max_length=255, null=True, blank=True)
+    legende2 = models.CharField(max_length=255, null=True, blank=True)
+    legende3 = models.CharField(max_length=255, null=True, blank=True)
+    body1 = models.TextField(null=True, blank=True)
+    body2 = models.TextField(null=True, blank=True)
+    body3 = models.TextField(null=True, blank=True)
     date = models.DateTimeField(auto_now_add=True, null=True, blank=True)
     image = models.ImageField(null=True, blank=True)
+    image2 = models.ImageField(null=True, blank=True)
+    image3 = models.ImageField(null=True, blank=True)
     author = models.CharField(max_length=255)
 
     def __str__(self):
@@ -205,9 +194,16 @@ class People(models.Model):
 
 class International(models.Model):
     title = models.CharField(max_length=255)
-    body = models.TextField()
+    legende = models.CharField(max_length=255, null=True, blank=True)
+    legende2 = models.CharField(max_length=255, null=True, blank=True)
+    legende3 = models.CharField(max_length=255, null=True, blank=True)
+    body1 = models.TextField(null=True, blank=True)
+    body2 = models.TextField(null=True, blank=True)
+    body3 = models.TextField(null=True, blank=True)
     date = models.DateTimeField(auto_now_add=True, null=True, blank=True)
     image = models.ImageField(null=True, blank=True)
+    image2 = models.ImageField(null=True, blank=True)
+    image3 = models.ImageField(null=True, blank=True)
     author = models.CharField(max_length=255)
 
     def __str__(self):
@@ -234,20 +230,52 @@ id_choice = {
 
 class Activite(models.Model):
     i_d = models.CharField(max_length=250, blank=True, null=True, choices=id_choice)
+    legende = models.CharField(max_length=255, null=True, blank=True)
+    legende2 = models.CharField(max_length=255, null=True, blank=True)
+    legende3 = models.CharField(max_length=255, null=True, blank=True)
     title = models.CharField(max_length=255)
-    body = models.TextField()
+    body1 = models.TextField(null=True, blank=True)
+    body2 = models.TextField(null=True, blank=True)
+    body3 = models.TextField(null=True, blank=True)
     date = models.DateTimeField(auto_now_add=True, null=True, blank=True)
     image = models.ImageField(null=True, blank=True)
+    image2 = models.ImageField(null=True, blank=True)
+    image3 = models.ImageField(null=True, blank=True)
+    author = models.CharField(max_length=255)
+
+    def __str__(self):
+        return self.title
+
+
+class Politique(models.Model):
+    legende = models.CharField(max_length=255, null=True, blank=True)
+    legende2 = models.CharField(max_length=255, null=True, blank=True)
+    legende3 = models.CharField(max_length=255, null=True, blank=True)
+    title = models.CharField(max_length=255)
+    body1 = models.TextField(null=True, blank=True)
+    body2 = models.TextField(null=True, blank=True)
+    body3 = models.TextField(null=True, blank=True)
+    date = models.DateTimeField(auto_now_add=True, null=True, blank=True)
+    image = models.ImageField(null=True, blank=True)
+    image2 = models.ImageField(null=True, blank=True)
+    image3 = models.ImageField(null=True, blank=True)
     author = models.CharField(max_length=255)
 
     def __str__(self):
         return self.title
 
 class Event(models.Model):
+    legende = models.CharField(max_length=255, null=True, blank=True)
+    legende2 = models.CharField(max_length=255, null=True, blank=True)
+    legende3 = models.CharField(max_length=255, null=True, blank=True)
     title = models.CharField(max_length=255)
-    body = models.TextField()
+    body1 = models.TextField(null=True, blank=True)
+    body2 = models.TextField(null=True, blank=True)
+    body3 = models.TextField(null=True, blank=True)
     date = models.DateTimeField(auto_now_add=True, null=True, blank=True)
-    image = models.ImageField(null=True, blank=True)
+    image = models.ImageField(null=True, blank=True) 
+    image2 = models.ImageField(null=True, blank=True)
+    image3 = models.ImageField(null=True, blank=True)
 
     def __str__(self):
         return self.title
@@ -264,10 +292,17 @@ sport_choice = {
 
 class Sport(models.Model):
     i_d = models.CharField(max_length=250, blank=True, null=True, choices=sport_choice)
+    legende = models.CharField(max_length=255, null=True, blank=True)
+    legende2 = models.CharField(max_length=255, null=True, blank=True)
+    legende3 = models.CharField(max_length=255, null=True, blank=True)
     title = models.CharField(max_length=255)
-    body = models.TextField()
+    body1 = models.TextField(null=True, blank=True)
+    body2 = models.TextField(null=True, blank=True)
+    body3 = models.TextField(null=True, blank=True)
     date = models.DateTimeField(auto_now_add=True, null=True, blank=True)
     image = models.ImageField(null=True, blank=True)
+    image2 = models.ImageField(null=True, blank=True)
+    image3 = models.ImageField(null=True, blank=True)
     author = models.CharField(max_length=255)
 
     def __str__(self):
@@ -295,10 +330,25 @@ class A_voir(models.Model):
 
 class Breaking(models.Model):
     categorie = models.CharField(max_length=255)
+    legende = models.CharField(max_length=255, null=True, blank=True)
+    legende2 = models.CharField(max_length=255, null=True, blank=True)
+    legende3 = models.CharField(max_length=255, null=True, blank=True)
     title = models.CharField(max_length=255)
-    body = models.TextField()
+    body1 = models.TextField(null=True, blank=True)
+    body2 = models.TextField(null=True, blank=True)
+    body3 = models.TextField(null=True, blank=True)
     date = models.DateTimeField(auto_now_add=True, null=True, blank=True)
-    image = models.ImageField()
+    image = models.ImageField(null=True, blank=True)
+    image2 = models.ImageField(null=True, blank=True)
+    image3 = models.ImageField(null=True, blank=True)
+
+    def __str__(self):
+        return self.title
+
+
+class Partenaires(models.Model):
+    title = models.CharField(max_length=255)
+    image = models.ImageField(null=True, blank=True)
 
     def __str__(self):
         return self.title
