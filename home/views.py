@@ -1,6 +1,7 @@
 from django.shortcuts import render, HttpResponseRedirect, redirect
 import requests
 import http.client
+from django.contrib.auth.models import User
 from django.shortcuts import get_list_or_404, get_object_or_404
 from django.contrib.auth import authenticate, login
 from django.contrib.auth import logout as django_logout
@@ -444,10 +445,10 @@ def register(request):
     return render(request, 'register.html', context)
 
 
-def loginPage(request):
+def login(request):
     context = {}
     if request.method == 'POST':
-        username = request.POST.get('username')
+        password = request.POST.get('password')
         email = request.POST.get('email')
         user = authenticate(request, username=username, email=email)
         if user is not None:

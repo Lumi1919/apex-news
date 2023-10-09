@@ -1,0 +1,38 @@
+.gradient-custom-2 {
+    /* fallback for old browsers */
+    background: #ffc107;
+    
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: -webkit-linear-gradient(to right,  #ffc107,  #ffc107,  #ffc107,  #ffc107);
+    
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: linear-gradient(to right,  #ffc107, #ffc107 #ffc107,  #ffc107);
+    }
+    
+    @media (min-width: 768px) {
+    .gradient-form {
+    height: 100vh !important;
+    }
+    }
+    @media (min-width: 769px) {
+    .gradient-custom-2 {
+    border-top-right-radius: .3rem;
+    border-bottom-right-radius: .3rem;
+    }
+    }
+
+.card-body {
+    background-color: black;
+}
+
+h1, h2, h3, h4, h5, h6, p, label{
+    color: white;
+}
+
+p{
+    text-align: justify;
+}
+
+section{
+    margin-bottom: 40px;
+}
