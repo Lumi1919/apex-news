@@ -106,7 +106,8 @@
 									<div class="title-section">
 										<h1><span>Commenter</span> <span class="email-not-published">Votre e-mail n'apparaîtra pas.</span></h1>
 									</div>
-									<form id="comment-form">
+									<form method="POST" id="comment-form">
+										{% csrf_token %}
 										<div class="row">
 											<div class="col-md-4">
 												<label for="name">Nom & Prénom*</label>
@@ -114,13 +115,13 @@
 											</div>
 											<div class="col-md-4">
 												<label for="mail">E-mail*</label>
-												<input id="mail" name="mail" type="text">
+												<input id="mail" name="email" type="text">
 											</div>
 										</div>
 										<label for="comment">Commentaire*</label>
-										<textarea id="comment" name="comment"></textarea>
-										<button type="submit" id="submit-contact">
-											<i class="fa fa-comment"></i> Commentaires
+										<textarea id="comment" name="content"></textarea>
+										<button type="submit" id="comment-actu" name="comment-actu">
+											<i class="fa fa-comment"></i> Valider
 										</button>
 									</form>
 								</div>
@@ -131,7 +132,11 @@
 
 						</div>
 						<!-- End block content -->
+						<div class="title-section">
+							<h1><span>Commentaires</h1>
+						</div>
 
+						{% include 'layouts/comment.html' %}
 					</div>
 
 					<div class="col-sm-4">
@@ -154,7 +159,7 @@
 									<div class="post-title">
 										<h2><a href="{% url 'home:actu' id=element.id %}">{{element.title}}</a></h2>
 										<ul class="post-tags">
-											<li><i class="fa fa-clock-o"></i>{{element.date}}</li>
+											<li><i class="fa fa-clock-o"></i>{{element.date| date:"d F Y"}}</li>
 											<li><i class="fa fa-user"></i>by <a href="#">{{element.author}}</a></li>
 											<li><a href="#"><i class="fa fa-comments-o"></i><span>23</span></a></li>
 											<li><i class="fa fa-eye"></i>872</li>

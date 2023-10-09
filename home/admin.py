@@ -18,6 +18,7 @@ from .models import Homme_de_la_semaine
 from .models import Sport
 from .models import Partenaires
 from .models import Politique
+from .models import Comment_Actu
 
 
 admin.site.register(Post)
@@ -39,5 +40,6 @@ admin.site.register(Actu)
 admin.site.register(Societe)
 admin.site.register(Partenaires)
 admin.site.register(Politique)
+admin.site.register(Comment_Actu)
 
 

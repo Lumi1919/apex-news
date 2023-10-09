@@ -44,10 +44,10 @@
 
 								<div class="post-content">
 
-									<p>{{societe.body1}}</p>
+									<p>{{societe.body1|linebreaks }}</p>
 
 									{% if societe.body2 %}
-									<h2>{{societe.body2}} </h2>
+									<h2>{{societe.body2|linebreaks }} </h2>
 									{% endif %}
 									
 								</div>
@@ -62,7 +62,7 @@
 								<div class="post-content">
 
 									{% if societe.body3 %}
-									<p>{{societe.body3}}</p>
+									<p>{{societe.body3|linebreaks }}</p>
 									{% endif %}
 
 								</div>

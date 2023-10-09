@@ -38,7 +38,7 @@ def articles(request, id):
     user = request.user
     articles = Articles.objects.all().order_by('-date')
     partenaire = Partenaires.objects.all()
-    videos = A_voir.objects.filter(categorie="sport").order_by('-date')
+    videos = A_voir.objects.filter(categorie="societe").order_by('-date')
     cultures = Culture.objects.all().order_by('-date')
     article = Articles.objects.get(pk=id)
     return render(request, 'article.html', {'articles': articles, 'article': article, 'videos': videos, 'cultures': cultures, 'partenaire' : partenaire})
@@ -395,35 +395,26 @@ def showpost(request, id):
 
 
 def actu(request, id):
-    user = request.user
     actu = get_object_or_404(Actu, pk=id)
     actus = Actu.objects.all().order_by('-date')
+    comments = Comment_Actu.objects.filter(actu=actu.id)
+
+
     cultures = Culture.objects.all().order_by('-date')
     internationals = International.objects.all().order_by('-date')
     articles = Articles.objects.all().order_by('-date')
-    actu_comments = Comment_Actu.objects.filter(actu=actu.id)
     videos = A_voir.objects.filter(categorie="societe").order_by('-date')
-    new_comment = None
-    if request.method == 'POST':
-        comment_form = NewCommentForm(data=request.POST)
-        if comment_form.is_valid():
-            new_comment = comment_form.save(commit=False)
-            new_comment.actu = actu
-            new_comment.save()
-    else:
-        comment_form = NewCommentForm()
-    print()
-    
+ 
+
     context = {
         'actu': actu, 
         'actus': actus, 
-        'actu_comments': actu_comments, 
-        'new_comment': new_comment, 
-        'comment_form': comment_form, 
         'videos': videos, 
         'articles': articles,
         'cultures': cultures, 
         'internationals': internationals,
+        'new_comment': new_comment,
+        'comments': comments,
     }
 
 
