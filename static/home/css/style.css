@@ -9509,3 +9509,7 @@ audio::-webkit-media-controls-play-button,
   margin : 3%;
 }
 }
+
+.to_hide p {
+  display:none;
+}
