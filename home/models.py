@@ -210,7 +210,7 @@ class International(models.Model):
         return self.title
 
 class Comment_Actu(models.Model):
-    actu = models.ForeignKey(Actu, on_delete=models.CASCADE, related_name="comments_actu")
+    actu = models.ForeignKey(Actu, on_delete=models.CASCADE, related_name="comments")
     name = models.CharField(max_length=255)
     email = models.EmailField()
     content = models.TextField(null=True, blank=True)
