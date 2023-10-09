@@ -413,7 +413,6 @@ def actu(request, id):
         'articles': articles,
         'cultures': cultures, 
         'internationals': internationals,
-        'new_comment': new_comment,
         'comments': comments,
     }
 
