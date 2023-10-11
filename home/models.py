@@ -74,10 +74,11 @@ class Comment(models.Model):
 
 
 class Episode(models.Model):
-    title = models.CharField(max_length=255)
-    topic = models.CharField(max_length=255)
+    title = models.CharField(max_length=255, null=True, blank=True)
+    topic = models.CharField(max_length=255, null=True, blank=True)
     date = models.DateTimeField(auto_now_add=True, null=True, blank=True)
-    image = models.ImageField()
+    link = models.CharField(max_length=255, null=True, blank=True)
+    image = models.ImageField(null=True, blank=True)
 
     def __str__(self):
         return self.title
