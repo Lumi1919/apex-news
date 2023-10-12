@@ -3,7 +3,8 @@
         <h1><span>ON EN PARLE</span></h1>
     </div>
     {% for element in articles %}
-    {% if forloop.counter == 1 and element != article %}
+    {% if element.article_categorie == "politique" %}
+    {% if forloop.counter <= 2 and element != article %}
 
     <div class="news-post standard-post2">
         <div class="post-gallery">
@@ -19,6 +20,8 @@
             </ul>
         </div>
     </div>
+    <br>
+    {% endif %}
     {% endif %}
     {% endfor %}
 </div>
@@ -41,6 +44,7 @@
         <div class="tab-pane active" id="option1">
             <ul class="list-posts">
                 {% for element in articles %}
+                {% if element.article_categorie != "politique" %}
                 {% if forloop.counter >= 1  and forloop.counter < 7 %}
                 <li>
                     <img src="{{element.image.url}}" alt="">
@@ -51,6 +55,7 @@
                         </ul>
                     </div>
                 </li>
+                {% endif %}
                 {% endif %}
                 {% endfor %}
                 <li>

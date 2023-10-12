@@ -19,7 +19,7 @@
 								<div class="image-slider">
 									<ul class="bxslider">
 										{% for element in societes %}
-										{% if forloop.counter <= 4 %}
+										{% if forloop.counter <= 2 %}
 										<li>
 											<div class="news-post image-post" id="foot_posts">
 												<img src="{{element.image.url}}" alt="">
@@ -41,7 +41,7 @@
 
 								<div class="row">
 								{% for element in societes %}
-								{% if forloop.counter > 4 %}
+								{% if forloop.counter > 2 %}
 									<div class="col-md-6">
 										<div class="news-post standard-post2">
 											<div class="post-gallery">

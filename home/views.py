@@ -304,7 +304,6 @@ def politique_show(request, id):
 
 
 def event_show(request, id):
-    user = request.user
     event = Event.objects.get(pk=id)
     partenaire = Partenaires.objects.all()
     events = Event.objects.all().order_by('-date')
@@ -323,33 +322,11 @@ def event_show(request, id):
         'activites': activites,
         'articles': articles,
         'partenaire' : partenaire, 
+        'event' : event,
         }
     return render(request, 'event_show.html', context)
 
 
-
-def event_show(request, id):
-    user = request.user
-    event = Event.objects.get(pk=id)
-    events = Event.objects.all().order_by('-date')
-    cultures = Culture.objects.all().order_by('-date')
-    activites = Activite.objects.all().order_by('-date')
-    articles = Articles.objects.all().order_by('-date')
-    peoples = People.objects.all().order_by('-date')
-    partenaire = Partenaires.objects.all()
-    videos = A_voir.objects.filter(categorie="culture").order_by('-date')
-    
-    context = {
-        'culture': culture, 
-        'videos': videos, 'peoples': peoples, 
-        'cultures': cultures,
-        'peoples' : peoples,
-        'events': events,
-        'activites': activites,
-        'articles': articles,
-        'partenaire' : partenaire,
-    }
-    return render(request, 'event_show.html', context)
 
 
 def breaking_show(request, id):

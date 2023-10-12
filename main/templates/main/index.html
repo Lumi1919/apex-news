@@ -145,7 +145,7 @@
 									<div class="col-md-6">
 										<div class="news-post standard-post2">
 											{% for element in societes %}
-											{% if forloop.counter == 1 %}
+											{% if forloop.counter == 2 %}
 											<div class="post-gallery">
 												<img src="{{element.image.url}}" alt="">
 												<a class="category-post" href="{% url 'home:societe' %}">SOCIETE</a>
@@ -167,7 +167,7 @@
 									<div class="col-md-6" id="Une_actu">
 										<ul class="list-posts">
 											{% for element in actus %}
-											{% if forloop.counter < 3 %}
+											{% if forloop.counter > 1 and forloop.counter < 4 %}
 											<li>
 												<img src="{{element.image.url}}" alt="">
 												<div class="post-content">
@@ -181,9 +181,9 @@
 											{% endfor %}
 										</ul>
 									</div>
-									<div class="col-md-6" id="Une_societe">
+									<div class="col-md-6" id="Une_international">
 										<ul class="list-posts">
-											{% for element in societes %}
+											{% for element in internationals %}
 											{% if forloop.counter < 3 %}
 											<li>
 												<img src="{{element.image.url}}" alt="">
@@ -408,7 +408,7 @@
 								</div>
 								<div class="news-post article-post">
 								{% for element in articles %}
-								{% if forloop.counter < 4 %}
+								{% if forloop.counter > 1 and forloop.counter < 5 %}
 									<div class="row">
 										<div class="col-sm-5">
 											<div class="post-gallery">

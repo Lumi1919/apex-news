@@ -20,7 +20,19 @@ class Post(models.Model):
     def __str__(self):
         return self.title
 
+
+article_choice = {
+    ('sport', 'sport'),
+    ('politique', 'politique'),
+    ('spiritualite', 'spiritualite'),
+    ('societe', 'societe'),
+    ('culture', 'culture'),
+    ('monde', 'monde'),
+    ('business', 'business'),
+
+}
 class Articles(models.Model):
+    article_categorie = models.CharField(max_length=250, blank=True, null=True, choices=article_choice)
     intro = models.CharField(max_length=255, null=True, blank=True)
     legende = models.CharField(max_length=255, null=True, blank=True)
     legende2 = models.CharField(max_length=255, null=True, blank=True)
