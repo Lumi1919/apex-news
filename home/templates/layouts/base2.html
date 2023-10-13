@@ -3,16 +3,16 @@
 
 <html lang="en" class="no-js">
 <head>
-	<title>APEX | News</title>
+	<title>APEX | {% if breaking %}{{breaking.title}}{% else %}News{% endif %} </title>
 
 	<meta charset="utf-8">
 
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="description" content="{{element.title}}">
+	<meta name="description" content="{{breaking.title}}">
 
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-	{% if element.image %}
-	<link rel="shortcut icon" href="{{element.image1.url}}" type="image/x-icon" />
+	{% if breaking %}
+	<link rel="shortcut icon" href="{{breaking.image.url}}" type="image/x-icon" />
 	{% else %}
 	<link rel="shortcut icon" href="/static/images/apexlogs2.jpg" type="image/x-icon" />
 	{% endif %}
