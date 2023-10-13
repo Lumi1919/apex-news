@@ -8,14 +8,15 @@
 	<meta charset="utf-8">
 
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="description" content="{{element.title}}">
 
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-	{% if element.image1 %}
+	{% if element.image %}
 	<link rel="shortcut icon" href="{{element.image1.url}}" type="image/x-icon" />
 	{% else %}
 	<link rel="shortcut icon" href="/static/images/apexlogs2.jpg" type="image/x-icon" />
 	{% endif %}
-	<meta name="description" content="{{element.title}}">
+
 	<link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,900,400italic' rel='stylesheet' type='text/css'>
 	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 
