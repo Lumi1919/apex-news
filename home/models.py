@@ -22,12 +22,19 @@ class Post(models.Model):
 
 
 article_choice = {
-    ('sport', 'sport'),
-    ('politique', 'politique'),
-    ('spiritualite', 'spiritualite'),
+    ('breaking', 'breaking'),
+    ('actualite', 'actualite'),
     ('societe', 'societe'),
     ('culture', 'culture'),
-    ('monde', 'monde'),
+    ('sport', 'sport'),
+    ('politique', 'politique'),
+    ('international', 'international'),
+    ('spiritualite', 'spiritualite'),
+    ('evenement', 'evenement'),
+    ('activite', 'activite'),
+    ('activite', 'activite'),
+    ('video', 'video'),
+    ('homme_de_la_semaine', 'homme_de_la_semaine'),
     ('business', 'business'),
 
 }
@@ -46,7 +53,7 @@ class Articles(models.Model):
     image2 = models.ImageField(null=True, blank=True)
     image3 = models.ImageField(null=True, blank=True)
     author = models.CharField(max_length=255, null=True, blank=True)
-    author_image = models.ImageField(null=True, blank=True)
+    videoLink = models.CharField(max_length=255, null=True, blank=True)
 
     def __str__(self):
         return self.title
@@ -68,21 +75,6 @@ class Evenements_Jour(models.Model):
 
     def __str__(self):
         return self.title
-
-
-class Comment(models.Model):
-    post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name="comments")
-    name = models.CharField(max_length=255)
-    email = models.EmailField()
-    content = models.TextField(null=True, blank=True)
-    publish = models.DateTimeField(auto_now_add=True)
-    status = models.BooleanField(default=True)
-
-    class Meta:
-        ordering = ("publish",)
-
-    def __str__(self):
-        return f"Comment by {self.name}"
 
 
 class Episode(models.Model):
@@ -277,6 +269,7 @@ class Politique(models.Model):
     def __str__(self):
         return self.title
 
+
 class Event(models.Model):
     legende = models.CharField(max_length=255, null=True, blank=True)
     legende2 = models.CharField(max_length=255, null=True, blank=True)
@@ -366,3 +359,16 @@ class Partenaires(models.Model):
     def __str__(self):
         return self.title
 
+class Comment(models.Model):
+    politique = models.ForeignKey(Politique, on_delete=models.CASCADE, related_name="comments")
+    name = models.CharField(max_length=255)
+    email = models.EmailField()
+    content = models.TextField(null=True, blank=True)
+    publish = models.DateTimeField(auto_now_add=True)
+    status = models.BooleanField(default=True)
+
+    class Meta:
+        ordering = ("publish",)
+
+    def __str__(self):
+        return f"Comment by {self.name}"

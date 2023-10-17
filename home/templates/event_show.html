@@ -92,41 +92,17 @@
 										{% endif %}
 									</div>
 								</div>
-
-
 								<!-- contact form box -->
-								<div class="contact-form-box">
-									<div class="title-section">
-										<h1><span>Commenter</span> <span class="email-not-published">Votre e-mail n'apparaîtra pas.</span></h1>
-									</div>
-									<form id="comment-form">
-										<div class="row">
-											<div class="col-md-4">
-												<label for="name">Nom & Prénom*</label>
-												<input id="name" name="name" type="text">
-											</div>
-											<div class="col-md-4">
-												<label for="mail">E-mail*</label>
-												<input id="mail" name="mail" type="text">
-											</div>
-										</div>
-										<label for="comment">Commentaire*</label>
-										<textarea id="comment" name="comment"></textarea>
-										<button type="submit" id="submit-contact">
-											<i class="fa fa-comment"></i> Commentaires
-										</button>
-									</form>
-								</div>
+								{% include 'layouts/comment_form.html' %}
 								<!-- End contact form box -->
-
 							</div>
 							<!-- End single-post box -->
-
 						</div>
 						<!-- End block content -->
-
+						{% include 'layouts/comments.html' %}
 					</div>
 
+				
 					<div class="col-sm-4">
 
 						<!-- sidebar -->

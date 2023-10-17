@@ -70,6 +70,7 @@ def sport(request, categorie=None):
     events = Event.objects.all().order_by('-date')
     cultures = Culture.objects.all().order_by('-date')
     posts = Post.objects.all().order_by('-date')
+    articles = Articles.objects.all().order_by('-date')
     
 
     if categorie is None:
@@ -82,6 +83,7 @@ def sport(request, categorie=None):
         'cultures':cultures,
         'events': events,
         'partenaire' : partenaire,
+        'articles': articles,
     }
         
         return render(request, 'sport.html', context)
@@ -289,8 +291,23 @@ def politique_show(request, id):
     politiques = Politique.objects.all().order_by('-date')
     politique = Politique.objects.get(pk=id)
     partenaire = Partenaires.objects.all()
+    comments = Comment.objects.filter(politique=politique.id)
     videos = A_voir.objects.filter(categorie="societe").order_by('-date')
-    
+    new_comment = None
+    if request.method == 'POST':
+        name = request.POST['name']
+        mail = request.POST['mail']
+        comment = request.POST['comment']
+  
+        new_comment = Comment(name=name, email=mail, content=comment)
+        new_comment.politique = politique
+        new_comment.save()
+        return redirect(request.path)
+    else:
+        comment_form = NewCommentForm()
+    print()
+
+
     context = {
         'videos': videos, 
         'cultures': cultures,
@@ -299,6 +316,8 @@ def politique_show(request, id):
         'politiques' : politiques,
         'internationals' : internationals,
         'partenaire' : partenaire,
+        'new_comment' : new_comment,
+        'comments' : comments,
     }
     return render(request, 'politique_show.html', context)
 

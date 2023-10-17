@@ -49,8 +49,8 @@ def mainpage(request):
     #}
     #    for game in response
     #]
-    return render(request, 'main/index.html',
-                  {'posts': posts,
+    context = {
+        'posts': posts,
                    'partenaire': partenaire,
                    'articles': articles,
                    'evenements': evenements,
@@ -65,6 +65,6 @@ def mainpage(request):
                    'internationals': internationals,
                    'videos': videos,
                    'breakings': breakings
-                   }
-                  )
+    }
+    return render(request, 'main/index.html', context)
 

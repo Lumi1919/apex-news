@@ -1,0 +1,25 @@
+<!-- contact form box -->
+<div class="contact-form-box">
+    <div class="title-section">
+        <h1><span>Commenter</span> <span class="email-not-published">Votre e-mail n'apparaîtra pas.</span></h1>
+    </div>
+    <form id="comment-form"  method='POST'>
+        {% csrf_token %}
+        <div class="row">
+            <div class="col-md-4">
+                <label for="name">Nom & Prénom*</label>
+                <input id="name" name="name" type="text" required>
+            </div>
+            <div class="col-md-4">
+                <label for="mail">E-mail*</label>
+                <input id="mail" name="mail" type="email" required>
+            </div>
+        </div>
+        <label for="comment">Commentaire*</label>
+        <textarea id="comment" name="comment" required></textarea>
+        <button type="submit" id="submit-contact">
+            <i class="fa fa-comment"></i> Commenter
+        </button>
+    </form>
+</div>
+<!-- End contact form box -->

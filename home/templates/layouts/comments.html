@@ -1,0 +1,16 @@
+
+<div class="title-section">
+<h1><span>Commentaires</h1></span>
+</div>
+{% for element in comments %}
+
+<div class="panel panel-default">
+    <div class="panel-body">
+      {{element.content}}
+    </div>
+    <div class="panel-footer">Par : {{element.name}}</div>
+</div>
+
+{% endfor %}
+
+
