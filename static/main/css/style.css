@@ -585,7 +585,7 @@ header.active .nav-list-container {
   opacity: 1;
 }
 .navbar-default .list-line-posts {
-  background: #f3c623;
+  background: white;
 }
 .navbar-default .list-line-posts .owl-wrapper {
   padding-left: 0;
@@ -598,14 +598,14 @@ header.active .nav-list-container {
 }
 .navbar-default .list-line-posts .owl-wrapper .owl-theme .owl-controls .owl-buttons div.owl-prev,
 .navbar-default .list-line-posts .owl-wrapper .owl-theme .owl-controls .owl-buttons div.owl-next {
-  border-color: transparent;
-  background: #ffffff;
+  border-color: black;
+  background: black;
   color: #999999;
 }
 .navbar-default .list-line-posts .owl-wrapper .owl-theme .owl-controls .owl-buttons div.owl-prev:hover,
 .navbar-default .list-line-posts .owl-wrapper .owl-theme .owl-controls .owl-buttons div.owl-next:hover {
-  border-color: #f5d76e;
-  background: #f5d76e;
+  border-color: black;
+  background: black;
 }
 .navbar-default .list-line-posts .owl-wrapper .owl-theme .owl-controls .owl-buttons div.owl-prev:hover:after,
 .navbar-default .list-line-posts .owl-wrapper .owl-theme .owl-controls .owl-buttons div.owl-next:hover:after {
@@ -660,14 +660,14 @@ body {
 p {
   font-size: 14px;
   text-align: justify;
-  color: white;
+  color: black;
   font-family: 'Lato', sans-serif;
   font-weight: 400;
   line-height: 20px;
   margin: 0 0 10px;
 }
 .block-wrapper {
-  background: black;
+  background: white;
 }
 .title-section {
   border-bottom: 1px solid #e1e1e1;
@@ -685,6 +685,7 @@ p {
 }
 .title-section h1 span {
   display: inline-block;
+  font-weight: bold;
   padding-bottom: 16px;
   padding-right: 5px;
   border-bottom: 1px solid #717171;
@@ -701,7 +702,7 @@ p {
   -webkit-transition: all 0.2s ease-in-out;
   -o-transition: all 0.2s ease-in-out;
   font-size: 11px;
-  color: #999999;
+  color: black;
   width: 20px;
   height: 20px;
   line-height: 18px;
@@ -731,7 +732,7 @@ p {
 }
 .title-section.white .arrow-box a:hover {
   color: #ffffff;
-  border: 1px solid #f44336;
+  border: 1px solid #f3c623;
 }
 a.category-post {
   display: inline-block;
@@ -1175,7 +1176,7 @@ section.feature-video .owl-theme .owl-controls .owl-buttons div.owl-next:hover:a
   -moz-transition: all 0.2s ease-in-out;
   -webkit-transition: all 0.2s ease-in-out;
   -o-transition: all 0.2s ease-in-out;
-  color: white;
+  color: black;
   font-size: 12px;
   font-family: 'Lato', sans-serif;
   padding: 6px 11px;
@@ -2004,7 +2005,7 @@ section.big-slider .big-bxslider li .image-post2 .hover-box .inner-hover h2 {
   -moz-border-radius: 0px;
   -o-border-radius: 0px;
   border-radius: 0px;
-  color: white;
+  color: black;
   font-size: 10px;
   font-family: 'Lato', sans-serif;
   text-transform: uppercase;
@@ -2026,7 +2027,7 @@ section.big-slider .big-bxslider li .image-post2 .hover-box .inner-hover h2 {
 }
 .sidebar .tab-posts-widget .tab-pane {
   padding: 20px 0 0;
-  background: black;
+  background: white;
 }
 .sidebar .tab-posts-widget .tab-pane ul.list-posts > li {
   padding-left: 20px;
@@ -2063,8 +2064,8 @@ section.big-slider .big-bxslider li .image-post2 .hover-box .inner-hover h2 {
   border-radius: 3px;
 }
 .sidebar .tags-widget ul.tag-list li a:hover {
-  border: 1px solid #f44336;
-  background: #f44336;
+  border: 1px solid #f3c623;
+  background:#f3c623;
   color: #ffffff;
 }
 .sidebar .recent-comments-widget ul {
@@ -2429,7 +2430,7 @@ a.read-more-button {
   -moz-border-radius: 4px;
   -o-border-radius: 4px;
   border-radius: 4px;
-  color: white;
+  color: black;
   font-size: 11px;
   font-family: 'Lato', sans-serif;
   font-weight: 700;
@@ -2438,7 +2439,7 @@ a.read-more-button {
 a.read-more-button i {
   padding: 6px 8px;
   border-right: 1px solid #f3c623;
-  background: #f3c623;
+  background: white;
   transition: all 0.2s ease-in-out;
   -moz-transition: all 0.2s ease-in-out;
   -webkit-transition: all 0.2s ease-in-out;
@@ -2448,8 +2449,8 @@ a.read-more-button span {
   padding: 6px 10px;
 }
 a.read-more-button:hover i {
-  color: #f3c623;
-  background:white;
+  color: black;
+  background:#f3c623;
 }
 /* image post style */
 .image-post {
@@ -2652,8 +2653,8 @@ ul.post-tags li:last-child {
 /* standard post2 style */
 .standard-post2 .post-title {
   padding: 18px 20px;
-  background: #fafafa;
-  border-bottom: 1px solid #f0f0f0;
+  background: black;
+  border-bottom: 1px solid black;
   transition: all 0.2s ease-in-out;
   -moz-transition: all 0.2s ease-in-out;
   -webkit-transition: all 0.2s ease-in-out;
@@ -2675,7 +2676,7 @@ ul.post-tags li:last-child {
   -moz-transition: all 0.2s ease-in-out;
   -webkit-transition: all 0.2s ease-in-out;
   -o-transition: all 0.2s ease-in-out;
-  color: #333333;
+  color: white;
 }
 .standard-post2 .post-title h2 a:hover {
   color: #4c60f6;
@@ -2826,7 +2827,7 @@ ul.list-posts > li .post-content h2 a {
   -moz-transition: all 0.2s ease-in-out;
   -webkit-transition: all 0.2s ease-in-out;
   -o-transition: all 0.2s ease-in-out;
-  color: white;
+  color: black;
 }
 ul.list-posts > li .post-content h2 a:hover {
   font-weight: bold;
@@ -2843,7 +2844,7 @@ ul.list-posts > li .post-content h2 a:hover {
   left: 0;
   width: 100%;
   padding: 10px 20px;
-  background: rgba(34, 34, 34, 0.6);
+  background: black;
   transition: all 0.2s ease-in-out;
   -moz-transition: all 0.2s ease-in-out;
   -webkit-transition: all 0.2s ease-in-out;
@@ -2941,10 +2942,10 @@ button.mfp-arrow {
   -moz-transition: all 0.2s ease-in-out;
   -webkit-transition: all 0.2s ease-in-out;
   -o-transition: all 0.2s ease-in-out;
-  color: #f3c623;
+  color:black;
 }
 .article-post .post-content h2 a:hover {
-  color: white;
+  color: #f3c623;
 }
 .article-post .post-content span.post-rating {
   display: inline-block;
@@ -4189,7 +4190,7 @@ div.list-post .post-content h2 a:hover {
 }
 .contact-form-box #contact-form button:hover,
 .contact-form-box #comment-form button:hover {
-  background: #f44336;
+  background: #f3c623;
   color: #ffffff;
 }
 .contact-form-box .title-section span.email-not-published {
@@ -6022,3 +6023,11 @@ footer .footer-last-line nav.footer-nav ul li:first-child:before {
 }
 }
 
+hr{
+  color: black;
+}
+
+#author_album{
+  color:lightgrey;
+
+}

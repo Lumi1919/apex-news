@@ -4,7 +4,7 @@
     </div>
     {% for element in articles %}
     {% if element.article_categorie == "politique" %}
-    {% if forloop.counter <= 2 and element != article %}
+    {% if forloop.counter <= 3 and element != article %}
 
     <div class="news-post standard-post2">
         <div class="post-gallery">
@@ -25,6 +25,37 @@
     {% endif %}
     {% endfor %}
 </div>
+
+
+<div class="widget features-slide-widget">
+    <div class="title-section">
+        <h1><span>SPIRITUALITE</span></h1>
+    </div>
+    {% for element in articles %}
+    {% if element.article_categorie == "spiritualite" %}
+    {% if forloop.counter == 1 and element != article %}
+
+    <div class="news-post standard-post2">
+        <div class="post-gallery">
+            <img src="{{element.image.url}}" alt="">
+        </div>
+        <div class="post-title">
+            <h2><a href="{% url 'home:article' element.id %}">{{element.title}}</a></h2>
+            <ul class="post-tags">
+                <li><i class="fa fa-clock-o"></i>{{element.date| date:"d F Y"}}</li>
+                <li><i class="fa fa-user"></i>Par <a href="#">{{element.author}}</a></li>
+                <li><a href="#"><i class="fa fa-comments-o"></i><span>23</span></a></li>
+                <li><i class="fa fa-eye"></i>872</li>
+            </ul>
+        </div>
+    </div>
+    <br>
+    {% endif %}
+    {% endif %}
+    {% endfor %}
+</div>
+
+
 
 <div class="widget tab-posts-widget">
 
