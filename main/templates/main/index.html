@@ -11,7 +11,7 @@
 					<div class="image-slider snd-size">
 						<span class="top-stories">A LA UNE </span>
 						<div id="UnePhoto" class="news-post image-post">
-							{% for element in actus %}
+							{% for element in actu_articles %}
 							{% if forloop.counter == 1%}
 							<img src="{{element.image.url}}" alt="">
 							<div class="hover-box">
@@ -32,7 +32,7 @@
 					</div>
 
 					<div id="Une1" class="news-post image-post default-size">
-						{% for element in societes %}
+						{% for element in societe_articles %}
 						{% if forloop.counter == 1%}
 						<img src="{{element.image.url}}" alt="">
 						<div class="hover-box">
@@ -68,7 +68,7 @@
 					</div>
 
 					<div class="news-post image-post" id="player_of_week">
-						{% for element in cultures %}
+						{% for element in culture_articles %}
 						{% if forloop.counter == 1%}
 						<img src="{{element.image.url}}" alt="">
 						<div class="hover-box">

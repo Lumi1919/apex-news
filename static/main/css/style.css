@@ -1895,7 +1895,7 @@ section.big-slider .big-bxslider li .image-post2 .hover-box .inner-hover h2 {
 .sidebar ul.social-share li span {
   display: block;
   margin: 0;
-  color: #999999;
+  color: lightgrey;
   font-size: 12px;
   font-family: 'Lato', sans-serif;
   font-weight: 700;
@@ -3360,7 +3360,7 @@ div.list-post .post-content h2 a:hover {
   margin-top: -10px;
 }
 .single-post-box .title-post h1 {
-  color: white;
+  color: Black;
   font-size: 24px;
   font-family: 'Lato', sans-serif;
   font-weight: 700;

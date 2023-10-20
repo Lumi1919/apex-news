@@ -14,6 +14,7 @@ from home.models import Societe
 from home.models import Culture, Partenaires
 from home.models import International
 from home.models import Homme_de_la_semaine
+from home.models import Comment_Article
 from datetime import datetime
 import requests
 
@@ -35,6 +36,11 @@ def mainpage(request):
     peoples = People.objects.all().order_by('-date')
     actus = Actu.objects.all().order_by('-date')
     today = str(datetime.now().date())
+    actu_articles = Articles.objects.filter(article_categorie='actualite').order_by('-date')
+    societe_articles = Articles.objects.filter(article_categorie='societe').order_by('-date')
+    politique_articles = Articles.objects.filter(article_categorie='politique').order_by('-date')
+    sport_articles = Articles.objects.filter(article_categorie='politique').order_by('-date')
+    culture_articles = Articles.objects.filter(article_categorie='culture').order_by('-date')
 
     # response = requests.get("https://api.sportsdata.io/v3/nba/scores/json/GamesByDate/"+today+"?key=e308c3c08c5746af87dd48d80266337a").json()
     #data = [{
@@ -64,7 +70,12 @@ def mainpage(request):
                    'cultures' : cultures,
                    'internationals': internationals,
                    'videos': videos,
-                   'breakings': breakings
+                   'breakings': breakings,
+                   'actu_articles': actu_articles,
+                   'societe_articles': societe_articles,
+                   'politique_articles': politique_articles,
+                   'sport_articles': sport_articles,
+                   'culture_articles': culture_articles,
     }
     return render(request, 'main/index.html', context)
 

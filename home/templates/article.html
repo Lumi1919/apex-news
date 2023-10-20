@@ -21,7 +21,7 @@
 										<li><i class="fa fa-clock-o"></i>{{article.date| date:"d F Y"}}</li>
 										<li><i class="fa fa-user"></i>Par <a href="#">{{article.author}}</a></li>
 										<li><a href="#"><i class="fa fa-comments-o"></i><span>0</span></a></li>
-										<li><i class="fa fa-eye"></i>872</li>
+										<li><i class="fa fa-eye"></i>{{article_view}}</li>
 									</ul>
 								</div>
 
@@ -46,7 +46,7 @@
 								</div>
 
 								<div class="post-gallery">
-									{% if societe.image2 %}
+									{% if article.image2 %}
 									<img src="{{article.image2.url}}" id="middle-post-gallery" alt="">
 									<span class="image-caption">{{article.legende2}}.</span>
 									{% endif %}
@@ -93,28 +93,7 @@
 
 
 								<!-- contact form box -->
-								<div class="contact-form-box">
-									<div class="title-section">
-										<h1><span>Commenter</span> <span class="email-not-published">Votre e-mail n'apparaîtra pas.</span></h1>
-									</div>
-									<form id="comment-form">
-										<div class="row">
-											<div class="col-md-4">
-												<label for="name">Nom & Prénom*</label>
-												<input id="name" name="name" type="text">
-											</div>
-											<div class="col-md-4">
-												<label for="mail">E-mail*</label>
-												<input id="mail" name="mail" type="text">
-											</div>
-										</div>
-										<label for="comment">Commentaire*</label>
-										<textarea id="comment" name="comment"></textarea>
-										<button type="submit" id="submit-contact">
-											<i class="fa fa-comment"></i> Commentaires
-										</button>
-									</form>
-								</div>
+								{% include 'layouts/comment_form.html' %}
 								<!-- End contact form box -->
 
 							</div>
@@ -122,6 +101,15 @@
 
 						</div>
 						<!-- End block content -->
+						<div class="title-section">
+							{% if not article.comments.all %}
+							<h1><span>Pas encore de commentaires...</h1>
+							{% else %}
+							<h1><span>Commentaires ({{comments_count}})</h1>
+							{% endif %}
+						</div>
+
+						{% include 'layouts/comment.html' %}
 
 					</div>
 

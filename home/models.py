@@ -54,6 +54,7 @@ class Articles(models.Model):
     image3 = models.ImageField(null=True, blank=True)
     author = models.CharField(max_length=255, null=True, blank=True)
     videoLink = models.CharField(max_length=255, null=True, blank=True)
+    post_views = models.IntegerField(null=True, blank=True, default=0)
 
     def __str__(self):
         return self.title
@@ -214,16 +215,21 @@ class International(models.Model):
     def __str__(self):
         return self.title
 
-class Comment_Actu(models.Model):
-    actu = models.ForeignKey(Actu, on_delete=models.CASCADE, related_name="comments")
+class Comment_Article(models.Model):
+    article = models.ForeignKey(Articles, on_delete=models.CASCADE, related_name="comments")
     name = models.CharField(max_length=255)
     email = models.EmailField()
     content = models.TextField(null=True, blank=True)
     publish = models.DateTimeField(auto_now_add=True)
     status = models.BooleanField(default=True)
+    date = models.DateTimeField(auto_now_add=True, null=True, blank=True)
 
     class Meta:
         ordering = ("publish",)
+        
+    def __str__(self):
+        return '%s - %s' % (self.article.title, self.name) 
+    
 
 id_choice = {
     ('sorties', 'sorties'),

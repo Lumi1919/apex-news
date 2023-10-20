@@ -1,5 +1,5 @@
 body{
-    margin-top:20px;
+
     background:#eee;
 }
 @media (min-width: 0) {
@@ -27,9 +27,7 @@ body{
     }
 }
 
-.g-bg-secondary {
-    background-color: black !important;
-}
+
 
 .u-shadow-v18 {
     box-shadow: 0 5px 10px -6px rgba(0, 0, 0, 0.15);
@@ -43,11 +41,13 @@ body{
     font-size: 0.85714rem !important;
 }
 
-.media-comment {
-    margin-top:20px
-}
 
 .media-body h5{
-    color: white;
+    color: black;
     font-weight: bold;
+}
+
+.h4, .h5, .h6, h4, h5, h6 {
+    margin-top: 2px;
+    margin-bottom: 10px;
 }

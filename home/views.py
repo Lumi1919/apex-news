@@ -23,7 +23,7 @@ from .models import Homme_de_la_semaine
 from .models import Partenaires
 from .models import Episode
 from .models import Comment
-from .models import Comment_Actu
+from .models import Comment_Article
 from .forms import UserForm
 from .forms import NewCommentForm
 from datetime import datetime, timedelta, time
@@ -42,7 +42,31 @@ def articles(request, id):
     videos = A_voir.objects.filter(categorie="societe").order_by('-date')
     cultures = Culture.objects.all().order_by('-date')
     article = Articles.objects.get(pk=id)
-    return render(request, 'article.html', {'articles': articles, 'article': article, 'videos': videos, 'cultures': cultures, 'partenaire' : partenaire})
+    article_view = article.post_views + 1
+    article.save()
+    comments = Comment_Article.objects.filter(article=article.id).order_by('-date')
+    if request.method == 'POST':
+        name = request.POST['name']
+        email = request.POST['email']
+        content = request.POST['content']
+  
+        new_comment = Comment_Article(name=name, email=email, content=content)
+        new_comment.article = article
+        new_comment.save()
+        return redirect(request.path)
+    comments_count = Comment_Article.objects.filter(article=article.id).count()
+    context = {
+        'articles': articles,
+        'article': article, 
+        'videos': videos, 
+        'cultures': cultures, 
+        'partenaire' : partenaire, 
+        'article_view': article_view,
+        'comments' : comments,
+        'comments_count' : comments_count,
+    }
+    
+    return render(request, 'article.html', context)
 
 def activites(request):
     user = request.user
@@ -71,6 +95,7 @@ def sport(request, categorie=None):
     cultures = Culture.objects.all().order_by('-date')
     posts = Post.objects.all().order_by('-date')
     articles = Articles.objects.all().order_by('-date')
+    cat_articles = Articles.objects.filter(article_categorie='sport').order_by('-date')
     
 
     if categorie is None:
@@ -84,6 +109,7 @@ def sport(request, categorie=None):
         'events': events,
         'partenaire' : partenaire,
         'articles': articles,
+        'cat_articles': cat_articles,
     }
         
         return render(request, 'sport.html', context)
@@ -168,8 +194,8 @@ def societe(request):
     internationals = International.objects.all().order_by('-date')
     videos = A_voir.objects.filter(categorie="societe").order_by('-date')
     articles = Articles.objects.all().order_by('-date')
-    
-    return render(request, 'societe.html', {'societes': societes, 'articles':articles, 'videos': videos, 'internationals': internationals, 'partenaire' : partenaire})
+    cat_articles = Articles.objects.filter(article_categorie='societe').order_by('-date')
+    return render(request, 'societe.html', {'societes': societes, 'articles':articles, 'videos': videos, 'internationals': internationals, 'partenaire' : partenaire, 'cat_articles': cat_articles})
 
 
 def international_show(request, id):
@@ -228,6 +254,7 @@ def culture(request):
     articles = Articles.objects.all().order_by('-date')
     events = Event.objects.all().order_by('-date')
     videos = A_voir.objects.filter(categorie="culture")
+    cat_articles = Articles.objects.filter(article_categorie='culture').order_by('-date')
     
     context = {
         'cultures': cultures, 
@@ -237,6 +264,7 @@ def culture(request):
         'events': events,
         'articles': articles,
         'partenaire' : partenaire,
+        'cat_articles' : cat_articles,
         
     }
     return render(request, 'culture.html', context)
@@ -272,6 +300,7 @@ def politique(request):
     articles = Articles.objects.all().order_by('-date')
     internationals = International.objects.all().order_by('-date')
     videos = A_voir.objects.filter(categorie="societe").order_by('-date')
+    cat_articles = Articles.objects.filter(article_categorie='politique').order_by('-date')
     
     context = {
         'cultures': cultures, 
@@ -280,6 +309,7 @@ def politique(request):
         'politiques':politiques,
         'internationals' : internationals,
         'partenaire' : partenaire,
+        'cat_articles' : cat_articles,
     }
     return render(request, 'politique.html', context)
 
@@ -394,9 +424,6 @@ def showpost(request, id):
 def actu(request, id):
     actu = get_object_or_404(Actu, pk=id)
     actus = Actu.objects.all().order_by('-date')
-    comments = Comment_Actu.objects.filter(actu=actu.id)
-
-
     cultures = Culture.objects.all().order_by('-date')
     internationals = International.objects.all().order_by('-date')
     articles = Articles.objects.all().order_by('-date')
@@ -410,7 +437,6 @@ def actu(request, id):
         'articles': articles,
         'cultures': cultures, 
         'internationals': internationals,
-        'comments': comments,
     }
 
 
