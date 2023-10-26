@@ -16,13 +16,13 @@
 							<img src="{{element.image.url}}" alt="">
 							<div class="hover-box">
 								<div class="inner-hover">
-									<a class="category-post" href="{% url 'home:actu' id=element.id %}">ACTU</a>
-									<h2><a href="{% url 'home:actu' id=element.id %}">{{element.title}}</a></h2>
+									<a class="category-post" href="{% url 'home:article' id=element.id %}">ACTU</a>
+									<h2><a href="{% url 'home:article' id=element.id %}">{{element.title}}</a></h2>
 									<ul class="post-tags">
 										<li><i class="fa fa-clock-o"></i>{{element.date | date:"d F Y"}}</li>
 										<li><i class="fa fa-user"></i>Par <a href="#">{{element.author}}</a></li>
-										<li><a href="#"><i class="fa fa-comments-o"></i><span>23</span></a></li>
-										<li><i class="fa fa-eye"></i>872</li>
+										<li><a href="#"><i class="fa fa-comments-o"></i><span>{{element.comments_num}}</span></a></li>
+										<li><i class="fa fa-eye"></i>{{element.post_views}}</li>
 									</ul>
 								</div>
 							</div>
@@ -38,10 +38,10 @@
 						<div class="hover-box">
 							<div class="inner-hover">
 								<a class="category-post" href="{% url 'home:societe'%}">SOCIETE</a>
-								<h2><a href="{% url 'home:societe_show' id=element.id %}">{{element.title}}</a></h2>
+								<h2><a href="{% url 'home:article' id=element.id %}">{{element.title}}</a></h2>
 								<ul class="post-tags">
 									<li><i class="fa fa-clock-o"></i><span>{{element.date | date:"d F Y"}}</span></li>
-									<li><a href="#"><i class="fa fa-comments-o"></i><span>23</span></a></li>
+									<li><a href="#"><i class="fa fa-comments-o"></i><span>{{element.comments_num}}</span></a></li>
 								</ul>
 							</div>
 						</div>
@@ -50,16 +50,16 @@
 					</div>
 
 					<div class="news-post image-post" id="lamb">
-						{% for element in player_of_week %}
+						{% for element in homme_articles %}
 						{% if forloop.counter == 1 %}
 						<img src="{{element.image.url}}" alt="">
 						<div class="hover-box">
 							<div class="inner-hover">
-								<a class="category-post" href="{% url 'home:homme_de_la_semaine_show' id=element.id %}">L'HOMME DE LA SEMAINE</a>
-								<h2><a href="{% url 'home:homme_de_la_semaine_show' id=element.id %}">{{element.title}}</a></h2>
+								<a class="category-post" href="{% url 'home:article' id=element.id %}">L'HOMME DE LA SEMAINE</a>
+								<h2><a href="{% url 'home:article' id=element.id %}">{{element.title}}</a></h2>
 								<ul class="post-tags">
 									<li><i class="fa fa-clock-o"></i><span>{{element.date | date:"d F Y"}}</span></li>
-									<li><a href="#"><i class="fa fa-comments-o"></i><span>23</span></a></li>
+									<li><a href="#"><i class="fa fa-comments-o"></i><span>{{element.comments_num}}</span></a></li>
 								</ul>
 							</div>
 						</div>
@@ -74,10 +74,10 @@
 						<div class="hover-box">
 							<div class="inner-hover">
 								<a class="category-post" href="{% url 'home:culture' %}">CULTURE</a>
-								<h2><a href="{% url 'home:culture_show' id=element.id %}">{{element.title}}</a></h2>
+								<h2><a href="{% url 'home:article' id=element.id %}">{{element.title}}</a></h2>
 								<ul class="post-tags">
 									<li><i class="fa fa-clock-o"></i><span>{{element.date | date:"d F Y"}}</span></li>
-									<li><a href="#"><i class="fa fa-comments-o"></i><span>20</span></a></li>
+									<li><a href="#"><i class="fa fa-comments-o"></i><span>{{element.comments_num}}</span></a></li>
 								</ul>
 							</div>
 						</div>
@@ -107,13 +107,13 @@
 									<h1><span>ACTUALITE </span></h1>
 								</div>
 								<div class="owl-carousel" data-num="3">
-									{% for element in actus %}
+									{% for element in actu_articles %}
 									{% if forloop.counter > 1 %}
 									<div class="item news-post video-post" id="actu_item">
 										<img src="{{element.image.url}}" alt="">
 
 										<div class="hover-box">
-											<h2><a href="{% url 'home:actu' id=element.id %}">{{element.title}}</a></h2>
+											<h2><a href="{% url 'home:article' id=element.id %}">{{element.title}}</a></h2>
 											<ul class="post-tags">
 												<li><i class="fa fa-clock-o"></i>{{element.date | date:"d F Y"}}</li>
 											</ul>
@@ -144,20 +144,20 @@
 								<div class="row">
 									<div class="col-md-6">
 										<div class="news-post standard-post2">
-											{% for element in societes %}
+											{% for element in societe_articles %}
 											{% if forloop.counter == 2 %}
 											<div class="post-gallery">
 												<img src="{{element.image.url}}" alt="">
 												<a class="category-post" href="{% url 'home:societe' %}">SOCIETE</a>
 											</div>
 											<div class="post-title">
-												<h2><a href="{% url 'home:societe_show' id=element.id %}">{{element.title}}</a></h2>
+												<h2><a href="{% url 'home:article' id=element.id %}">{{element.title}}</a></h2>
 												<p id="posttitle_p">{{element.body | truncatewords:30}}</p>
 												<ul class="post-tags">
-													<li><i class="fa fa-clock-o"></i>27 may 2013</li>
+													<li><i class="fa fa-clock-o"></i>{{element.date | date:"d F Y"}}</li>
 													<li><i class="fa fa-user"></i>Par <a href="#">{{element.author}}</a></li>
-													<li><a href="#"><i class="fa fa-comments-o"></i><span>23</span></a></li>
-													<li><i class="fa fa-eye"></i>872</li>
+													<li><a href="#"><i class="fa fa-comments-o"></i><span>{{element.comments_num}}</span></a></li>
+													<li><i class="fa fa-eye"></i>{{element.post_views}}</li>
 												</ul>
 											</div>
 											{% endif %}
@@ -166,12 +166,12 @@
 									</div>
 									<div class="col-md-6" id="Une_actu">
 										<ul class="list-posts">
-											{% for element in actus %}
+											{% for element in actu_articles %}
 											{% if forloop.counter > 1 and forloop.counter < 4 %}
 											<li>
 												<img src="{{element.image.url}}" alt="">
 												<div class="post-content">
-													<h2><a href="{% url 'home:actu' id=element.id %}">{{element.title}}</a></h2>
+													<h2><a href="{% url 'home:article' id=element.id %}">{{element.title}}</a></h2>
 													<ul class="post-tags">
 														<li><i class="fa fa-clock-o"></i>{{element.date}}</li>
 													</ul>
@@ -183,12 +183,12 @@
 									</div>
 									<div class="col-md-6" id="Une_international">
 										<ul class="list-posts">
-											{% for element in internationals %}
+											{% for element in international_articles %}
 											{% if forloop.counter < 3 %}
 											<li>
 												<img src="{{element.image.url}}" alt="">
 												<div class="post-content">
-													<h2><a href="{% url 'home:societe_show' id=element.id %}">{{element.title}}</a></h2>
+													<h2><a href="{% url 'home:article' id=element.id %}">{{element.title}}</a></h2>
 													<ul class="post-tags">
 														<li><i class="fa fa-clock-o"></i>{{element.date}}</li>
 													</ul>
@@ -214,29 +214,29 @@
 										<div class="owl-wrapper">
 											<div class="owl-carousel" data-num="1">
 												<div class="item">
-													{% for element in sports %}
+													{% for element in sport_articles %}
 													{% if forloop.counter == 1 %}
 													<div class="news-post standard-post2">
 														<div class="post-gallery">
 															<img src="{{element.image.url}}" alt="">
 														</div>
 														<div class="post-title">
-															<h2><a href="{% url 'home:sport_show' id=element.id %}">{{element.title}} </a></h2>
+															<h2><a href="{% url 'home:article' id=element.id %}">{{element.title}} </a></h2>
 															<ul class="post-tags">
 																<li><i class="fa fa-user"></i>Par <a href="#">{{element.author}}</a></li>
-																<li><a><i class="fa fa-comments-o"></i><span>23</span></a></li>
-																<li><i class="fa fa-eye"></i>872</li>
+																<li><a><i class="fa fa-comments-o"></i><span>{{element.comments_num}}</span></a></li>
+																<li><i class="fa fa-eye"></i>{{element.post_views}}</li>
 															</ul>
 														</div>
 													</div>
 													{% endif %}
 													{% endfor %}
 													<ul class="list-posts">
-													{% for element in sports %}
+													{% for element in sport_articles %}
 													{% if forloop.counter > 2 and forloop.counter < 6 %}
 														<li>
 															<div class="post-content">
-																<h2><a href="{% url 'home:sport_show' id=element.id %}">{{element.title}}</a></h2>
+																<h2><a href="{% url 'home:article' id=element.id %}">{{element.title}}</a></h2>
 																<ul class="post-tags">
 																	<li><i class="fa fa-clock-o"></i>{{element.date}}</li>
 																</ul>
@@ -248,29 +248,29 @@
 												</div>
 
 												<div class="item">
-													{% for element in sports %}
+													{% for element in sport_articles %}
 													{% if forloop.counter == 2 %}
 													<div class="news-post standard-post2">
 														<div class="post-gallery">
 															<img src="{{element.image.url}}" alt="">
 														</div>
 														<div class="post-title">
-															<h2><a href="{% url 'home:sport_show' id=element.id %}">{{element.title}}</a></h2>
+															<h2><a href="{% url 'home:article' id=element.id %}">{{element.title}}</a></h2>
 															<ul class="post-tags">
 																<li><i class="fa fa-user"></i>Par <a href="#">{{element.author}}</a></li>
-																<li><a><i class="fa fa-comments-o"></i><span>23</span></a></li>
-																<li><i class="fa fa-eye"></i>872</li>
+																<li><a><i class="fa fa-comments-o"></i><span>{{element.comments_num}}</span></a></li>
+																<li><i class="fa fa-eye"></i>{{element.post_views}}</li>
 															</ul>
 														</div>
 													</div>
 													{% endif %}
 													{% endfor %}
 													<ul class="list-posts">
-													{% for element in sports %}
+													{% for element in sport_articles %}
 													{% if forloop.counter > 2 and forloop.counter < 6 %}
 														<li>
 															<div class="post-content">
-																<h2><a href="{% url 'home:sport_show' id=element.id %}">{{element.title}}</a></h2>
+																<h2><a href="{% url 'home:article' id=element.id %}">{{element.title}}</a></h2>
 																<ul class="post-tags">
 																	<li><i class="fa fa-clock-o"></i>{{element.date}}</li>
 																</ul>
@@ -293,29 +293,29 @@
 										<div class="owl-wrapper">
 											<div class="owl-carousel" data-num="1">
 												<div class="item">
-													{% for element in cultures %}
+													{% for element in culture_articles %}
 													{% if forloop.counter == 1 %}
 													<div class="news-post standard-post2">
 														<div class="post-gallery">
 															<img src="{{element.image.url}}" alt="">
 														</div>
 														<div class="post-title">
-															<h2><a href="{% url 'home:culture_show' id=element.id %}">{{element.title}}</a></h2>
+															<h2><a href="{% url 'home:article' id=element.id %}">{{element.title}}</a></h2>
 															<ul class="post-tags">
-																<li><i class="fa fa-user"></i>by <a href="#">{{element.author}}</a></li>
-																<li><a><i class="fa fa-comments-o"></i><span>23</span></a></li>
-																<li><i class="fa fa-eye"></i>872</li>
+																<li><i class="fa fa-user"></i>Par <a href="#">{{element.author}}</a></li>
+																<li><a><i class="fa fa-comments-o"></i><span>{{element.comments_num}}</span></a></li>
+																<li><i class="fa fa-eye"></i>{{element.post_views}}</li>
 															</ul>
 														</div>
 													</div>
 													{% endif %}
 													{% endfor %}
 													<ul class="list-posts">
-														{% for element in cultures %}
+														{% for element in culture_articles %}
 														{% if forloop.counter > 2 and forloop.counter < 6 %}
 														<li>
 															<div class="post-content">
-																<h2><a href="{% url 'home:culture_show' id=element.id %}">{{element.title}}</a></h2>
+																<h2><a href="{% url 'home:article' id=element.id %}">{{element.title}}</a></h2>
 																<ul class="post-tags">
 																	<li><i class="fa fa-clock-o"></i>{{element.date}}</li>
 																</ul>
@@ -328,29 +328,29 @@
 
 
 												<div class="item">
-													{% for element in cultures %}
+													{% for element in culture_articles %}
 													{% if forloop.counter == 2 %}
 													<div class="news-post standard-post2">
 														<div class="post-gallery">
 															<img src="{{element.image.url}}" alt="">
 														</div>
 														<div class="post-title">
-															<h2><a href="{% url 'home:culture_show' id=element.id %}">{{element.title}}</a></h2>
+															<h2><a href="{% url 'home:article' id=element.id %}">{{element.title}}</a></h2>
 															<ul class="post-tags">
-																<li><i class="fa fa-user"></i>by <a href="#">{{element.author}}</a></li>
-																<li><a><i class="fa fa-comments-o"></i><span>23</span></a></li>
-																<li><i class="fa fa-eye"></i>872</li>
+																<li><i class="fa fa-user"></i>Par <a href="#">{{element.author}}</a></li>
+																<li><a><i class="fa fa-comments-o"></i><span>{{element.comments_num}}</span></a></li>
+																<li><i class="fa fa-eye"></i>{{element.post_views}}</li>
 															</ul>
 														</div>
 													</div>
 													{% endif %}
 													{% endfor %}
 													<ul class="list-posts">
-														{% for element in cultures %}
+														{% for element in culture_articles %}
 														{% if forloop.counter > 2 and forloop.counter < 6 %}
 														<li>
 															<div class="post-content">
-																<h2><a href="{% url 'home:culture_show' id=element.id %}">{{element.title}}</a></h2>
+																<h2><a href="{% url 'home:article' id=element.id %}">{{element.title}}</a></h2>
 																<ul class="post-tags">
 																	<li><i class="fa fa-clock-o"></i>{{element.date}}</li>
 																</ul>
@@ -421,9 +421,9 @@
 												<h2><a href="{% url 'home:article' id=element.id %}">{{element.title}}</a></h2>
 												<ul class="post-tags">
 													<li><i class="fa fa-clock-o"></i>{{element.date}}</li>
-													<li><i class="fa fa-user"></i>by <a href="#">{{element.author}}</a></li>
-													<li><a><i class="fa fa-comments-o"></i><span>23</span></a></li>
-													<li><i class="fa fa-eye"></i>872</li>
+													<li><i class="fa fa-user"></i>Par <a href="#">{{element.author}}</a></li>
+													<li><a><i class="fa fa-comments-o"></i><span>{{element.comments_num}}</span></a></li>
+													<li><i class="fa fa-eye"></i>{{element.post_views}}</li>
 												</ul>
 												<p>{{element.body | truncatewords:50}}</p>
 												<a href="{% url 'home:article' id=element.id %}" class="read-more-button"><i class="fa fa-angle-right"></i><span>Lire Plus</span></a>
@@ -444,7 +444,7 @@
 									<li><a href="#">3</a></li>
 									<li><span>...</span></li>
 									<li><a href="#">9</a></li>
-									<li><a href="#">Next</a></li>
+									<li><a href="#">Suivant</a></li>
 								</ul>
 								<p>Page 1 of 9</p>
 							</div>

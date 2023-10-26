@@ -1,6 +1,8 @@
 from django.db import models
 
 
+
+
 class Post(models.Model):
     intro = models.CharField(max_length=255, null=True, blank=True)
     legende = models.CharField(max_length=255, null=True, blank=True)
@@ -32,10 +34,11 @@ article_choice = {
     ('spiritualite', 'spiritualite'),
     ('evenement', 'evenement'),
     ('activite', 'activite'),
-    ('activite', 'activite'),
+    ('event', 'event'),
     ('video', 'video'),
     ('homme_de_la_semaine', 'homme_de_la_semaine'),
     ('business', 'business'),
+    ('pub', 'pub'),
 
 }
 class Articles(models.Model):
@@ -55,6 +58,8 @@ class Articles(models.Model):
     author = models.CharField(max_length=255, null=True, blank=True)
     videoLink = models.CharField(max_length=255, null=True, blank=True)
     post_views = models.IntegerField(null=True, blank=True, default=0)
+    comments_num = models.IntegerField(null=True, blank=True, default=0)
+    
 
     def __str__(self):
         return self.title

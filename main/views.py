@@ -29,7 +29,6 @@ def mainpage(request):
     videos = A_voir.objects.all().order_by('-date')
     sports = Sport.objects.all().order_by('-date')
     episode = Episode.objects.all()
-    player_of_week = Homme_de_la_semaine.objects.all().order_by('-date')
     album = Album.objects.all().order_by('-date')
     activites = Activite.objects.all().order_by('-date')
     breakings = Breaking.objects.all().order_by('-date')
@@ -39,8 +38,11 @@ def mainpage(request):
     actu_articles = Articles.objects.filter(article_categorie='actualite').order_by('-date')
     societe_articles = Articles.objects.filter(article_categorie='societe').order_by('-date')
     politique_articles = Articles.objects.filter(article_categorie='politique').order_by('-date')
-    sport_articles = Articles.objects.filter(article_categorie='politique').order_by('-date')
+    sport_articles = Articles.objects.filter(article_categorie='sport').order_by('-date')
     culture_articles = Articles.objects.filter(article_categorie='culture').order_by('-date')
+    spiritualite_articles = Articles.objects.filter(article_categorie='spiritualite').order_by('-date')
+    international_articles = Articles.objects.filter(article_categorie='international').order_by('-date')
+    homme_articles = Articles.objects.filter(article_categorie='homme_de_la_semaine').order_by('-date')
 
     # response = requests.get("https://api.sportsdata.io/v3/nba/scores/json/GamesByDate/"+today+"?key=e308c3c08c5746af87dd48d80266337a").json()
     #data = [{
@@ -61,7 +63,6 @@ def mainpage(request):
                    'articles': articles,
                    'evenements': evenements,
                    'album': album,
-                   'player_of_week': player_of_week,
                    'activites': activites,
                    'peoples': peoples,
                    'actus': actus,
@@ -76,6 +77,9 @@ def mainpage(request):
                    'politique_articles': politique_articles,
                    'sport_articles': sport_articles,
                    'culture_articles': culture_articles,
+                   'spiritualite_articles': spiritualite_articles,
+                   'international_articles': international_articles,
+                    'homme_articles': homme_articles,
     }
     return render(request, 'main/index.html', context)
 
