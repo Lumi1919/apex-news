@@ -87,12 +87,12 @@
 
 						<div class="owl-wrapper">
 							<div class="owl-carousel" data-num="4">
-								{% for element in breakings %}
+								{% for element in breaking_articles %}
 								<div class="item list-post">
 									<img src="{{element.image.url}}" alt="">
 									<div class="post-content">
-										<a href="{% url 'home:breaking_show' element.id %}">Breakings | {{element.categorie}}</a>
-										<h2><a href="{% url 'home:breaking_show' element.id %}">{{element.title}}</a></h2>
+										<a href="{% url 'home:article' id=element.id %}">Breakings | {{element.intro}}</a>
+										<h2><a href="{% url 'home:article' id=element.id %}">{{element.title}}</a></h2>
 										<ul class="post-tags">
 											<li>{{element.body}}</li>
 										</ul>

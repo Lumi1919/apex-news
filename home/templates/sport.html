@@ -17,9 +17,9 @@
 
 							<div class="widget features-slide-widget">
 								<div class="title-section">
-									<h1><span>JOUEUR DU MOIS</span></h1>
+									<h1><span>ON EN PARLE</span></h1>
 								</div>
-								{% for element in player_of_week %}
+								{% for element in actu_articles %}
 								{% if forloop.counter == 1 %}
 								<div class="news-post standard-post2">
 									<div class="post-gallery">
@@ -29,8 +29,8 @@
 										<h2><a href="single-post.html">{{element.title}}</a></h2>
 										<ul class="post-tags">
 											<li><i class="fa fa-user"></i>Par <a href="#">{{element.author}}</a></li>
-											<li><a href="#"><i class="fa fa-comments-o"></i><span>23</span></a></li>
-											<li><i class="fa fa-eye"></i>872</li>
+											<li><a href="#"><i class="fa fa-comments-o"></i><span>{{element.comments_num}}</span></a></li>
+											<li><i class="fa fa-eye"></i>{{element.post_views}}</li>
 										</ul>
 									</div>
 								</div>
