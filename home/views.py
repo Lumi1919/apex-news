@@ -76,6 +76,7 @@ def articles(request, id):
 
 def activites(request):
     user = request.user
+    articles = Articles.objects.all().order_by('-date')
     international_articles = Articles.objects.filter(article_categorie='international').order_by('-date')
     actu_articles = Articles.objects.filter(article_categorie='actualite').order_by('-date')
     societe_articles = Articles.objects.filter(article_categorie='societe').order_by('-date')
@@ -98,6 +99,7 @@ def activites(request):
         'spiritualite_articles': spiritualite_articles,
         'international_articles': international_articles,
         'cat_articles': cat_articles,
+        'articles': articles,
     }
     return render(request, 'activites.html', context)
 
