@@ -41,7 +41,7 @@
 								<h2><a href="{% url 'home:article' id=element.id %}">{{element.title}}</a></h2>
 								<ul class="post-tags">
 									<li><i class="fa fa-clock-o"></i><span>{{element.date | date:"d F Y"}}</span></li>
-									<li><a href="#"><i class="fa fa-comments-o"></i><span>{{element.comments_num}}</span></a></li>
+									<li><i class="fa fa-eye"></i>{{element.post_views}}</li>
 								</ul>
 							</div>
 						</div>
@@ -59,7 +59,7 @@
 								<h2><a href="{% url 'home:article' id=element.id %}">{{element.title}}</a></h2>
 								<ul class="post-tags">
 									<li><i class="fa fa-clock-o"></i><span>{{element.date | date:"d F Y"}}</span></li>
-									<li><a href="#"><i class="fa fa-comments-o"></i><span>{{element.comments_num}}</span></a></li>
+									<li><i class="fa fa-eye"></i>{{element.post_views}}</li>
 								</ul>
 							</div>
 						</div>
@@ -77,7 +77,7 @@
 								<h2><a href="{% url 'home:article' id=element.id %}">{{element.title}}</a></h2>
 								<ul class="post-tags">
 									<li><i class="fa fa-clock-o"></i><span>{{element.date | date:"d F Y"}}</span></li>
-									<li><a href="#"><i class="fa fa-comments-o"></i><span>{{element.comments_num}}</span></a></li>
+									<li><i class="fa fa-eye"></i>{{element.post_views}}</li>
 								</ul>
 							</div>
 						</div>
